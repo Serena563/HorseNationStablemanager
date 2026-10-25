@@ -1,21 +1,16 @@
 # Horse Nation Stalmanagement
 
 
-## Versie 2026-10-24e: sorteren per groep
+## Versie 2026-10-25b
 
-- Naast de naam van elke groep in het Kladblok (naast het aantal paarden) staat nu een knopje om te sorteren. Tik erop om te wisselen: **⇅ Eigen** → **↓ SDG** (hoogste bovenaan) → **↓ A–Z** → weer Eigen.
-- Alle subgroepen in die groep volgen wat je voor de groep kiest. Het keuzelijstje per subgroep uit versie 2026-10-24c is weg.
-- Paarden zonder SDG staan bij SDG-sortering onderaan.
-- Je eigen sleepvolgorde blijft bewaard. Kies je weer "Eigen", dan staan de paarden terug zoals jij ze had gezet.
-- De instelling **Paarden op alfabet** bij ⚙️ Instellingen is weg. Groepen waar je nog niets hebt gekozen staan op A–Z.
+- **Komma's in getallen werken nu ook op de telefoon.** In alle velden met een kommagetal (SDG, S/D/G, SDG van een veulen bij Bevallen en + Veulen toevoegen, leeftijd, kleurgrenzen) kun je nu een komma typen, bijv. 21,5. De app maakt er zelf een punt van, zodat het goed wordt opgeslagen. Op de telefoon krijg je een toetsenbord met cijfers en een komma.
 
-## Versie 2026-10-24b: veulens direct in je Kladblok
+## Versie 2026-10-25a: dekgroepen zelf indelen
 
-- **Bevallen → Veulen invoeren** vraagt nu meer gegevens: **S, D en G los** (de app rekent de totale SDG zelf uit), de **Stalnaam fokker**, de geboortedatum en de vader.
-- **Het veulen komt direct in je Kladblok.** Kies bij "Zet in Kladblok bij" in welke subgroep het moet komen. De app stelt een groep met "veulen" in de naam voor en onthoudt je laatste keuze. Wil je het veulen alleen in de database, kies dan "Niet in Kladblok".
-- **Ouders kloppen meteen.** Het veulen krijgt de merrie als moeder en de dekhengst als vader, en staat bij allebei als nakomeling. Bij Vader kun je kiezen uit de hengsten in je database. Staat de vader er nog niet in, dan zie je een waarschuwing.
-- De app onthoudt de stalnaam die je het laatst invulde, zodat je die niet steeds opnieuw hoeft te typen.
-- De link naar de handleiding verwijst naar het nieuwe adres (serena563.github.io).
+- In **Stal → Stalplan**, bij een ras onder 💞 Dekken, staat **✏️ Groepen zelf indelen**. Kies per merrie Groep A, B, … of Automatisch. Zo zet je bijvoorbeeld twee merries die nu al drachtig zijn samen in één groep.
+- Een groep heeft plek voor zoveel merries als je bij Max. drachtig tegelijk hebt ingesteld. Is een groep vol, dan staat dat erbij.
+- Merries op Automatisch blijven waar ze stonden zolang daar plek is; anders zet de app ze in de groep met de meeste ruimte.
+- Wordt een merrie vervangen, dan neemt de vervanger haar groep over. Met **↺ Alles automatisch** zet je het ras terug naar de indeling van de app. Je indeling gaat mee met Dropbox en de back-up.
 
 ## Versie 2026-10-23h: niet te lang wachten op een vervanger
 
@@ -89,7 +84,7 @@
 
 ## Versie 2026-10-21i
 
-- **Handleiding als PDF bij de app.** Bovenaan 📖 Uitleg staat een knop **📄 Volledige handleiding (PDF)**. Het bestand `handleiding.pdf` staat naast `index.html` in de repository, dus je kunt ook direct linken: `https://serena563.github.io/HorseNationStablemanager/handleiding.pdf`.
+- **Handleiding als PDF bij de app.** Bovenaan 📖 Uitleg staat een knop **📄 Volledige handleiding (PDF)**. Het bestand `handleiding.pdf` staat naast `index.html` in de repository, dus je kunt ook direct linken: `https://serena-nova.github.io/HorseNationStablemanager/handleiding.pdf`.
 
 ## Versie 2026-10-21h
 
