@@ -1,6 +1,39 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-10-27g: instelling voor het plakken van je stal
+
+- Nieuw bij ⚙️ Instellingen: kopje **📋 Plakvlak** met **Nieuwe paarden van je stal**. Je kiest één van drie:
+  - **Zoals in het spel (groepen overnemen)**, de standaard: paarden komen in dezelfde groep als in Horse Nation. Bestaat die groep nog niet in je Kladblok, dan maakt de app hem aan. Ook bestaande paarden verhuizen mee.
+  - **Altijd naar 'Nieuw uit Horse Nation'**: nieuwe paarden komen onderaan, zodat je ze zelf verdeelt. Bestaande paarden blijven staan.
+  - **Op ras en geslacht**: nieuwe paarden gaan naar de groep met hetzelfde ras, en daarin naar de merries of hengsten. Geen passende plek? Dan bij Nieuw uit Horse Nation. Bestaande paarden blijven staan.
+- Dezelfde keuze staat ook boven de lijst als je je stal plakt, dus je kunt hem daar meteen aanpassen.
+- Dit geldt alleen voor de pagina **Mijn stal**. Paarden van **Merrie dekken** en uit een stamboom komen zoals altijd alleen in je database.
+- Het koppelen per groep uit versie 2026-10-27e is vervangen door deze ene instelling.
+- Er gaat bij Opslaan nooit een paard verloren: zet je "Nieuwe paarden ook in het Kladblok zetten" uit, dan komen ze in je database.
+
+## Versie 2026-10-27f: op ras én op merrie/hengst
+
+- Kies je bij het plakken van je stallijst **Op ras**, dan kijkt de app nu ook naar het geslacht. Heb je in een rasgroep subgroepen voor merries en hengsten, dan gaat een nieuwe merrie naar de merries en een nieuwe hengst naar de hengsten.
+- De app herkent die subgroepen aan de naam (bijv. "Merries", "Hengsten", ♀, ♂) of aan de paarden die er al in staan. Een lege subgroep "Hengsten" wordt dus ook gevonden.
+- Is er voor dat ras geen plek voor dat geslacht, dan komt het paard bij Nieuw uit Horse Nation in plaats van bij het verkeerde geslacht.
+
+## Versie 2026-10-27e: stallijst plakken met je eigen groepen
+
+- **De app maakt geen groepen meer aan** met de namen uit Horse Nation. Nieuwe paarden zonder vaste plek komen weer onderaan bij **Nieuw uit Horse Nation**, zodat je ze zelf kunt verdelen. Bestaande paarden blijven staan waar jij ze had gezet.
+- **Groepen uit het spel koppelen:** deel je je stal in het spel anders in dan in het Kladblok (bijv. in het spel op discipline, in het Kladblok op ras), dan kies je bij het plakken per groep uit het spel:
+  - **Niet verplaatsen**: nieuwe paarden komen bij Nieuw uit Horse Nation.
+  - **Op ras**: elk nieuw paard gaat naar de Kladblok-groep met paarden van hetzelfde ras (of die naar het ras heet).
+  - **Een vaste groep** uit je Kladblok.
+  De app onthoudt je keuze voor de volgende keer. Heten de groepen in het spel en in het Kladblok hetzelfde, dan vindt de app ze vanzelf.
+- **Altijd in de database:** zet je "Nieuwe paarden ook in het Kladblok zetten" uit, dan komen ze toch in je database terecht. Er gaat bij Opslaan nooit meer een paard verloren.
+
+## Versie 2026-10-27d: nieuwe paarden uit je stallijst altijd zichtbaar
+
+- Plak je **Mijn stal** in het Plakvlak en staan er nieuwe paarden in, dan zegt de app na **Opslaan** in welke groep van het Kladblok ze staan.
+- Staat er in het Kladblok nog een filter aan (bijv. alleen Friezen, of alleen 🤰 Gedekt/drachtig) waardoor je de nieuwe paarden niet zou zien, dan zet de app dat filter uit.
+- Staat een filter aan, dan zie je dat nu duidelijk boven je groepen: "Filter staat aan: je ziet 3 van de 40 paarden (37 verborgen)", met een knop om alles weer te tonen.
+
 ## Versie 2026-10-27c: veulen invoeren en sorteren weer terug
 
 Op 24 oktober is er in een apart gesprek aan de app gewerkt (versies 2026-10-24b, 24c en 24e). De versies vanaf 2026-10-25 zijn per ongeluk op een oudere versie verder gebouwd, waardoor die verbeteringen wegvielen. Ze staan er nu weer in, samen met alles van daarna:
