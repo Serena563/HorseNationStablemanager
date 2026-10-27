@@ -1,6 +1,13 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-10-27a: dekdienst in opleiding
+
+- Nieuwe status voor hengsten: **💞 Dekdienst in opleiding**. Voor een jonge hengst die al ter dekking staat voor andere spelers (fokkerspunten), maar nog geen fokbonus heeft. In het Stalplan telt hij als paard in opleiding, dus als opvuller of vervanger, niet als dekhengst. Je eigen merries krijgen hem niet voorgesteld.
+- Nieuwe instelling bij ⚙️ Instellingen → Mijn stal: **Dekdienst in opleiding** (standaard 5): het maximum aantal veulens buitenshuis voor zo'n hengst. Bij dat aantal zegt Vandaag en het Stalplan: zet de dekdienst uit en zet hem terug op 🎓 In opleiding. De app telt geboren veulens van hem in je database en de veulens die anderen van hem verwachten (plak daarvoor zijn pagina in het Plakvlak).
+- Op **Vandaag** staat "Hengsten die kunnen beginnen met dekken": jonge hengsten die in het spel al mogen dekken. Met één tik zet je ze op 💞.
+- Heeft hij fokbonus en is hij beter dan je zwakste dekhengst, dan zegt het Stalplan zoals altijd: zet hem op ❤️ Actief als dekhengst.
+
 ## Versie 2026-10-25b
 
 - **Komma's in getallen werken nu ook op de telefoon.** In alle velden met een kommagetal (SDG, S/D/G, SDG van een veulen bij Bevallen en + Veulen toevoegen, leeftijd, kleurgrenzen) kun je nu een komma typen, bijv. 21,5. De app maakt er zelf een punt van, zodat het goed wordt opgeslagen. Op de telefoon krijg je een toetsenbord met cijfers en een komma.
