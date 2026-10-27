@@ -1,6 +1,19 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-10-27c: veulen invoeren en sorteren weer terug
+
+Op 24 oktober is er in een apart gesprek aan de app gewerkt (versies 2026-10-24b, 24c en 24e). De versies vanaf 2026-10-25 zijn per ongeluk op een oudere versie verder gebouwd, waardoor die verbeteringen wegvielen. Ze staan er nu weer in, samen met alles van daarna:
+
+- **Bevallen → Veulen invoeren** vraagt weer **S, D en G los** (de app rekent de totale SDG uit), de **Stalnaam fokker**, de geboortedatum en de vader. Komma's werken ook op de telefoon.
+- **Het veulen komt direct in je Kladblok.** Kies bij "Zet in Kladblok bij" de subgroep, of "Niet in Kladblok". De app onthoudt je laatste keuze en je laatste stalnaam.
+- **Ouders kloppen meteen:** het veulen krijgt de merrie als moeder en de dekhengst als vader, en staat bij allebei als nakomeling. Staat de vader nog niet in je database, dan zie je een waarschuwing.
+- **Sorteren per groep** in het Kladblok: het knopje naast het aantal paarden wisselt tussen ⇅ Eigen, ↓ SDG en ↓ A–Z. De instelling "Paarden op alfabet" is daarmee vervallen.
+
+## Versie 2026-10-27b
+
+- **S, D en G los invullen bij een nieuw veulen.** Bij 🍼 Bevallen (Veulen invoeren) en bij + Veulen toevoegen staan nu Stap (S), Draf (D) en Galop (G). Vul je ze alle drie in, dan wordt de SDG vanzelf het totaal. Alleen de SDG invullen mag ook. S, D en G worden bij het veulen bewaard.
+
 ## Versie 2026-10-27a: dekdienst in opleiding
 
 - Nieuwe status voor hengsten: **💞 Dekdienst in opleiding**. Voor een jonge hengst die al ter dekking staat voor andere spelers (fokkerspunten), maar nog geen fokbonus heeft. In het Stalplan telt hij als paard in opleiding, dus als opvuller of vervanger, niet als dekhengst. Je eigen merries krijgen hem niet voorgesteld.
