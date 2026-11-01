@@ -1,6 +1,13 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01g: pas met fokbonus naar de wei
+
+- Het blok **🚚 Verhuizen** in het Stalplan stuurt een paard pas naar de wei als het zijn **fokbonus** heeft.
+  - **Hengsten:** met ❤️ én fokbonus naar het hengstenweiland. Een jonge hengst met ❤️ zonder fokbonus hoort nog in de stal.
+  - **Merries:** met 🔥 én fokbonus, en alleen als ze **geen plek in een PowerHouse-team** hebben (volgens Stal → Teams, met je maximum per team). Die gaan naar het merrieweiland, of naar het Preferent-weiland als het een Preferent-merrie is.
+  - Paarden zonder fokbonus en paarden in een PowerHouse-team blijven in de stal.
+
 ## Versie 2026-11-01f: wie moet naar welk weiland
 
 - Heb je bij je weilanden een doel gekozen, dan staat in het **Stalplan** onder de bezetting een blok **🚚 Verhuizen**. Daar zie je wie volgens je weilanden ergens anders hoort:
