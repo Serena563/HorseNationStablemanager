@@ -1,6 +1,18 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01f: wie moet naar welk weiland
+
+- Heb je bij je weilanden een doel gekozen, dan staat in het **Stalplan** onder de bezetting een blok **🚚 Verhuizen**. Daar zie je wie volgens je weilanden ergens anders hoort:
+  - **Dekhengsten (❤️)** naar het hengstenweiland.
+  - **Fokmerries (🔥)** die niet in de PowerHouse rijden naar het merrieweiland.
+  - **Preferent-merries (🏆)** naar het Preferent-weiland, als je dat hebt.
+  - **PowerHouse en paarden in opleiding** horen in de stal. Staan die in de wei, dan zie je ze bij "terug naar de stal".
+- Met de knop **Verplaats naar …** zet de app ze in je Kladblok in de groep van dat weiland. Is er nog geen groep voor dat weiland, dan maakt de app er een aan met de naam van het weiland. Verplaats ze ook in Horse Nation zelf.
+- Paarden met ❌ of ⚠️ (gaan weg) en SALE-paarden worden niet verplaatst.
+- **Plan voor de merriewei klopt beter:** merries in de PowerHouse blijven in de stal en tellen niet mee voor de merriewei. Preferent-merries tellen bij het Preferent-weiland. Daardoor verdwijnt de onterechte melding "Te weinig plek voor fokmerries".
+- Een groep die al op "Weiland" stond voordat je meerdere weilanden had, telt bij je eerste weiland. Kies bij die groep in het Kladblok het goede weiland.
+
 ## Versie 2026-11-01e: weilanden met een eigen doel in het Stalplan
 
 - Bij ⚙️ Instellingen → Mijn stal → Weilanden kies je nu per weiland **waarvoor** het is: 🐎 Dekhengsten, 🔥 Fokmerries, 🏆 Preferent-route, 🎈 Vrij (telt niet mee) of gemengd.
