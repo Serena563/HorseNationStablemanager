@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01j: waarom terug naar de stal?
+
+- Bij **🚚 Verhuizen → terug naar de stal** staat nu per paard **waarom**:
+  - **geen fokbonus**: het paard hoort nog in opleiding. Heeft het de fokbonus wel, zet die dan aan in het Kladblok.
+  - **plek in Team …**: een merrie met fokbonus die de app in een PowerHouse-team wil, omdat dat team nog plek heeft (zie Stal → Teams). Wil je haar liever in de wei, zet dan bij Teams het maximum lager of verplaats haar daar.
+
 ## Versie 2026-11-01i: "Stal volgens plan" klopt met je weilanden
 
 - Heb je een weiland voor **fokmerries**, dan rekent de app je stal nu als **PowerHouse + opleiding** (bijvoorbeeld 12 + 26 = 38 van 40). Eerder telde de app nog alle fokmerries plus de veulenplekken als stal, en gaf dan ten onrechte "Je plan is te groot voor je stallen".
