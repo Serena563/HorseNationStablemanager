@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01a: nieuwe allroundbeloning
+
+- De allroundbeloning in het Trainingscentrum is bijgewerkt naar de nieuwe waarde uit het spel: **18.000 munten en 1.500 XP** (was 15.000 munten en 1.250 XP).
+- Had je de oude waarde nog staan, dan zet de app die vanzelf om. Heb je zelf een ander bedrag ingevuld, dan blijft dat staan. Je eigen andere instellingen blijven ook gewoon bewaard.
+- Je ziet en wijzigt het bij Trainingscentrum → Aannames → Allround, munten en XP.
+
 ## Versie 2026-10-27g: instelling voor het plakken van je stal
 
 - Nieuw bij ⚙️ Instellingen: kopje **📋 Plakvlak** met **Nieuwe paarden van je stal**. Je kiest één van drie:
