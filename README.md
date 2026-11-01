@@ -1,6 +1,25 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01e: weilanden met een eigen doel in het Stalplan
+
+- Bij ⚙️ Instellingen → Mijn stal → Weilanden kies je nu per weiland **waarvoor** het is: 🐎 Dekhengsten, 🔥 Fokmerries, 🏆 Preferent-route, 🎈 Vrij (telt niet mee) of gemengd.
+- Het **Stalplan** laat per weiland zien hoe vol het is en hoeveel paarden er volgens je plan per ras in horen, bijvoorbeeld "Hengstenwei (Dekhengsten): 12 / 16, plan 14". Past je plan niet, dan krijg je een melding: "Te weinig plek voor dekhengsten: 2 te veel".
+- Staan je **fokmerries in de wei**, dan tellen ze niet meer mee voor de stal. "Stal volgens plan" wordt dan kleiner, zodat je ziet hoeveel stalplekken er vrij komen voor opleiding en de PowerHouse.
+- Een weiland **Vrij** (bijvoorbeeld voor de lol) telt nergens mee.
+- Bij de Teams gaan reservepaarden naar het fokmerrie-weiland als je dat hebt, zolang daar plek is.
+- Je reserveplekken in de wei blijven altijd vrij.
+
+## Versie 2026-11-01d: meer weilanden en dekking ongedaan maken
+
+Naar aanleiding van de nieuwe Horse Nation-update:
+
+- **Tot 4 weilanden, met een eigen naam.** Bij ⚙️ Instellingen → Mijn stal staat nu een lijstje **Weilanden**: per weiland een naam en het aantal plekken. Met **+ Weiland toevoegen** voeg je er een toe (maximaal 4). De app telt alle plekken bij elkaar op voor het Stalplan, Vandaag en de Teams.
+  - Een volledig weiland heeft maximaal 16 paarden. In een paddock mag 1 paard per 8 grasvakjes (max. 6), met een schuilstal 1 per 5 (max. 8).
+  - Het veld "Waarvan nood" heet nu **Wei: reserveplekken (vrij houden)**. Het werkt hetzelfde.
+- **Groep op een bepaald weiland zetten.** Heb je meer dan één weiland, dan kies je bij een groep in het Kladblok niet meer alleen "Weiland", maar welk weiland. Bovenaan het Kladblok zie je dan per weiland hoe vol het is.
+- **↩️ Dekking ongedaan maken.** Heb je in het spel een dekking teruggedraaid (kan alleen vóór de drachtcontrole of echo), tik dan bij de merrie onder Dekking & dracht op deze knop. Gedekt, hengst en bevallingsdatum worden leeggemaakt en ze kan meteen opnieuw gedekt worden.
+
 ## Versie 2026-11-01c: maximum per team en reserve
 
 - Nieuw bij Stal → Teams: **Max. paarden per team** (standaard 3; 1 t/m 5 of geen maximum).
