@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01h: weilanden in het Stalplan kloppen met je echte paarden
+
+- **Geen onterechte melding meer "Te weinig plek voor fokmerries".** De app rekende met je plan per ras (alle fokmerries), terwijl merries zonder fokbonus en merries in een PowerHouse-team gewoon in de stal blijven. Nu telt de app de paarden die echt in dat weiland horen: met fokbonus, en (bij merries) zonder plek in een PowerHouse-team.
+- **Wat staat er in welk weiland:** tik in het Stalplan op een weiland. Je ziet dan de paarden die er nu staan (♂/♀ en SDG), en bij "hoort hier" hoeveel paarden er volgens je regels in horen.
+- Bij Instellingen → Mijn stal staat dezelfde telling per weiland.
+
 ## Versie 2026-11-01g: pas met fokbonus naar de wei
 
 - Het blok **🚚 Verhuizen** in het Stalplan stuurt een paard pas naar de wei als het zijn **fokbonus** heeft.
