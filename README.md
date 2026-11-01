@@ -1,6 +1,15 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01b: Teams eenvoudiger en volgens je eigen werkwijze
+
+- **Alleen paarden met fokbonus** komen in een team. Paarden die nog in opleiding zijn, staan onderaan (dichtgeklapt) bij **Nog geen fokbonus** en komen er vanzelf bij zodra ze hun fokbonus hebben.
+- **Elk paard blijft in zijn eigen richting.** Met de Western-fokbonus gaat een paard naar Reining, Trail of Western Pleasure; met de Engelse fokbonus naar Dressuur, Springen of Cross-country.
+- **Daarbinnen naar de beste plek:** de discipline waar het paard de meeste aanleg voor heeft. Is het in meerdere disciplines bijna even goed (hoogstens 0,30 verschil), dan gaat het naar het team met de **minste paarden**.
+- **Geen "kan ook…"-teksten meer** bij de paarden. Je ziet per paard alleen de naam, de aanleg in dat team en de knop Verplaatsen naar…
+- Paarden worden niet meer naar een andere richting geschoven om een leeg team te vullen. Een team mag dus leeg blijven.
+- Zelf verplaatst (📌) blijft zoals het was: het paard staat vast tot je het losmaakt.
+
 ## Versie 2026-11-01a: nieuwe allroundbeloning
 
 - De allroundbeloning in het Trainingscentrum is bijgewerkt naar de nieuwe waarde uit het spel: **18.000 munten en 1.500 XP** (was 15.000 munten en 1.250 XP).
