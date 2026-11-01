@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01k: rassen bij dekgeld makkelijker weghalen
+
+- Bij Fokken → Mijn dekhengsten → Prijsregels voor dekgeld staat bij een ras met eigen prijzen nu bovenaan de knop **✕ Weghalen**. Dan geldt voor dat ras weer de Standaard-prijs. Eerder stond die knop helemaal onderaan, onder de hele prijzenlijst.
+- Bij Standaard staat uitgelegd hoe het werkt: met + geef je een ras eigen prijzen, met ✕ Weghalen haal je het weer weg.
+
 ## Versie 2026-11-01j: waarom terug naar de stal?
 
 - Bij **🚚 Verhuizen → terug naar de stal** staat nu per paard **waarom**:
