@@ -1,6 +1,15 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01c: maximum per team en reserve
+
+- Nieuw bij Stal → Teams: **Max. paarden per team** (standaard 3; 1 t/m 5 of geen maximum).
+- Zit een team vol, dan blijven de beste paarden erin. De rest komt bij **Reserve**, met per paard wat je ermee doet:
+  - **🌾 naar de wei (fokmerrie)** zolang er plek is in de wei. Je reserveplekken in de wei (Instellingen → Mijn stal → nood, standaard 6) blijven altijd vrij. De zwakste reservepaarden gaan als eerste naar de wei.
+  - **⭐ allround trainen in de stal** als de wei vol is.
+- Komt er in een team een plek vrij, dan schuift het beste reservepaard vanzelf terug.
+- Verkopen staat er niet bij: dat doe je pas als er een beter paard komt.
+
 ## Versie 2026-11-01b: Teams eenvoudiger en volgens je eigen werkwijze
 
 - **Alleen paarden met fokbonus** komen in een team. Paarden die nog in opleiding zijn, staan onderaan (dichtgeklapt) bij **Nog geen fokbonus** en komen er vanzelf bij zodra ze hun fokbonus hebben.
