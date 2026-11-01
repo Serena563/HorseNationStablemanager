@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-01i: "Stal volgens plan" klopt met je weilanden
+
+- Heb je een weiland voor **fokmerries**, dan rekent de app je stal nu als **PowerHouse + opleiding** (bijvoorbeeld 12 + 26 = 38 van 40). Eerder telde de app nog alle fokmerries plus de veulenplekken als stal, en gaf dan ten onrechte "Je plan is te groot voor je stallen".
+- Dit geldt overal: bij Instellingen → Rassen (Totalen volgens je plan), bij Mijn stal en in het Stalplan ("stal volgens plan").
+- Bij de totalen staat ook of al je fokmerries passen in PowerHouse + merriewei, en hoeveel dekhengsten je hebt tegenover de plekken in de hengstenwei.
+
 ## Versie 2026-11-01h: weilanden in het Stalplan kloppen met je echte paarden
 
 - **Geen onterechte melding meer "Te weinig plek voor fokmerries".** De app rekende met je plan per ras (alle fokmerries), terwijl merries zonder fokbonus en merries in een PowerHouse-team gewoon in de stal blijven. Nu telt de app de paarden die echt in dat weiland horen: met fokbonus, en (bij merries) zonder plek in een PowerHouse-team.
