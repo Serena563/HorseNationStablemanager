@@ -3238,7 +3238,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-01k";
+var HN_VERSION="2026-11-03a";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};
@@ -3362,13 +3362,24 @@ function hnParseDek(text){var lines=text.replace(/\r/g,"").split("\n"),out=[];
  var mh=text.match(/Beschikbare hengsten voor\s+([^\n(]+?)\s*(?:\(\d+\s*gevonden\))?\s*$/m);
  return out.length?{type:"dek",rows:out,mare:mh?mh[1].trim():""}:null}
 function hnNS(v){return Se(v).replace(/\s+/g,"")}
+function hnDekSplitAll(rows,known){var lo=function(c){return!!c&&c!==c.toUpperCase()&&c===c.toLowerCase()},up=function(c){return!!c&&c!==c.toLowerCase()&&c===c.toUpperCase()},isL=function(c){return!!c&&c.toLowerCase()!==c.toUpperCase()};
+ var cands=function(full){var o=[],f=full.trim(),m;
+  m=f.match(/^(.+?['’‘]s)\s*(\S.*)$/);if(m&&isL(m[2][0]))o.push({stal:m[1].trim(),name:m[2].trim(),side:"pre",bonus:4});
+  m=f.match(/^(.*?[^\s\d])\s*((?:[Vv]an|v\.?)\s.+)$/);if(m&&m[1].length>=2)o.push({stal:m[2].trim(),name:m[1].trim(),side:"post",bonus:4});
+  m=f.match(/^([^A-Za-zÀ-ɏ]+)\s*([A-Za-zÀ-ɏ].*)$/);if(m&&m[1].trim())o.push({stal:m[1].trim(),name:m[2].trim(),side:"pre",bonus:4});
+  for(var i=1;i<f.length;i++){var a=f[i-1],b=f[i];if((lo(a)||a==="'"||a==="’")&&up(b)){var A=f.slice(0,i).trim(),B=f.slice(i).trim();o.push({stal:A,name:B,side:"pre",bonus:0});o.push({stal:B,name:A,side:"post",bonus:0})}}
+  return o};
+ var C=rows.map(function(r){return cands(r.full)}),freq={};C.forEach(function(L){var seen={};L.forEach(function(c){var k=c.side+"|"+hnNS(c.stal);if(!seen[k]){seen[k]=1;freq[k]=(freq[k]||0)+1}})});
+ return rows.map(function(r,ri){var best=null;C[ri].forEach(function(c){if(!c.name||!c.stal)return;var nl=c.name.replace(/[^A-Za-zÀ-ɏ]/g,"").length;if(nl<2)return;var sc=c.bonus,ks=hnNS(c.stal);if(known[ks])sc+=10;if((freq[c.side+"|"+ks]||0)>=2)sc+=6;if(/\s/.test(c.stal)&&!/\s/.test(c.name))sc+=3;if(c.stal.length<=5&&c.stal===c.stal.toUpperCase()&&/[A-Z]/.test(c.stal))sc+=3;if(r.owner&&ks.length>=3&&hnNS(r.owner).indexOf(ks)>=0)sc+=3;if(!up(c.name.replace(/^[^A-Za-zÀ-ɏ]+/,"")[0]))sc-=3;if(!best||sc>best.sc)best={sc:sc,c:c}});
+  return best&&best.sc>=3?{name:best.c.name,stal:best.c.stal}:{name:r.full.trim(),stal:""}})}
 function hnPlanDek(P,all,opt){var keys={},stalnames={};all.forEach(function(h){if(!h.name)return;var add=function(k){if(k&&(!keys[k]||h.inStal&&!keys[k].inStal))keys[k]=h};add(hnNS(h.name));if(h.stalnaam){stalnames[hnNS(h.stalnaam)]=h.stalnaam;add(hnNS(h.stalnaam+h.name));add(hnNS(h.name+h.stalnaam))}});
  var sn=Object.keys(stalnames).sort(function(a,b){return b.length-a.length});
  var esc=function(x){return x.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")},pat=function(st){return st.replace(/\s+/g,"").split("").map(function(ch){return ch==="'"||ch==="\u2019"||ch==="\u2018"?"['\u2019\u2018]":esc(ch)}).join("\\s*")};
  var split=function(full){for(var i=0;i<sn.length;i++){var st=stalnames[sn[i]],P=pat(st);var m=full.match(new RegExp("^\\s*"+P+"\\s*(.+)$","i"));if(m&&m[1].trim())return{name:m[1].trim(),stal:st};m=full.match(new RegExp("^(.+?)\\s*"+P+"\\s*$","i"));if(m&&m[1].trim())return{name:m[1].trim(),stal:st}}return{name:full,stal:""}};
  var mineRas={},weak={};all.filter(function(h){return h.inStal}).forEach(function(h){if(h.ras)mineRas[Se(h.ras)]=1});
  all.filter(function(h){return h.inStal&&h.gender==="M"&&hnFok(h)&&!h.sale}).forEach(function(h){var k=Se(h.ras),v=km(h);if(v!==null&&(weak[k]===void 0||v<weak[k]))weak[k]=v});
- var res=[];P.rows.forEach(function(r){var ex=keys[hnNS(r.full)]||null;if(ex&&ex.gender==="M"){var alt=all.find(function(h){return h.gender==="H"&&h.name&&(hnNS(h.name)===hnNS(r.full)||h.stalnaam&&(hnNS(h.stalnaam+h.name)===hnNS(r.full)||hnNS(h.name+h.stalnaam)===hnNS(r.full)))});ex=alt||null}var mine=/^jij$/i.test(r.owner),sdg=r.S+r.D+r.G;
+ var knownS={};Object.keys(stalnames).forEach(function(k){knownS[k]=1});var SPL=hnDekSplitAll(P.rows,knownS);
+ var res=[];P.rows.forEach(function(r,ri){var ex=keys[hnNS(r.full)]||null;if(!ex&&SPL[ri].stal){var q=SPL[ri];ex=all.find(function(h){return h.gender==="H"&&!h.inStal&&h.name&&hnNS(h.name)===hnNS(q.name)&&(!h.stalnaam||hnNS(h.stalnaam)===hnNS(q.stal))&&(!h.ras||!r.ras||Se(h.ras)===Se(r.ras))})||null}if(ex&&ex.gender==="M"){var alt=all.find(function(h){return h.gender==="H"&&h.name&&(hnNS(h.name)===hnNS(r.full)||h.stalnaam&&(hnNS(h.stalnaam+h.name)===hnNS(r.full)||hnNS(h.name+h.stalnaam)===hnNS(r.full)))});ex=alt||null}var mine=/^jij$/i.test(r.owner),sdg=r.S+r.D+r.G;
   var west=["rei","tra","wp"].every(function(id){return r.lv[id]===4}),engZ=r.lv.dres===9&&r.lv.spr===4,engM=r.lv.dres>=4&&r.lv.spr===4&&r.lv.xc===4,eng=engZ||engM;
   var lvTxt=Object.keys(r.lv).map(function(k){return HN_DSHORT[k]+" "+HN_DISC.find(function(d){return d.id===k}).levels[r.lv[k]]}).join(", ");
   if(mine){if(!ex||!ex.inStal){res.push({r:r,skip:"eigen hengst, niet in je Kladblok gevonden"});return}
@@ -3376,9 +3387,9 @@ function hnPlanDek(P,all,opt){var keys={},stalnames={};all.forEach(function(h){i
   if(opt.myRas&&r.ras&&!mineRas[Se(r.ras)]){res.push({r:r,skip:"ras niet in je stal"});return}
   var base={dekhengst:!0,stal:r.owner,ras:r.ras||(ex&&ex.ras)||"",sdg:hnSdgStr(r.S,r.D,r.G),sdgS:String(r.S),sdgD:String(r.D),sdgG:String(r.G),niveaus:Object.assign({dres:0,spr:0,rei:0,tra:0,wp:0},ex?hnNiv(ex):{},r.lv)};
   if(r.price!==null)base.dekgeld=String(r.price);if(r.coi!==null)base.coiHN=r.coi;if(west||eng){base.fokbonus=!0;base.fokbonusType=west&&eng?"beide":west?"west":"eng";if(eng&&!west)base.engRoute=engZ?"zz":"m1"}if(west&&engZ&&r.lv.xc===4)base.allround=!0;
-  if(ex){var chg=[];if(String(ex.dekgeld||"")!==String(base.dekgeld||""))chg.push("dekgeld "+(base.dekgeld?hnMoney(+base.dekgeld):"\u2013"));if(!ex.dekhengst)chg.push("op je lijst Dekhengsten");if(km(ex)===null||Math.abs((km(ex)||0)-sdg)>.05)chg.push("S/D/G");if(Se(ex.stal)!==Se(r.owner))chg.push("eigenaar "+r.owner);
+  if(ex){var chg=[];if(String(ex.dekgeld||"")!==String(base.dekgeld||""))chg.push("dekgeld "+(base.dekgeld?hnMoney(+base.dekgeld):"\u2013"));if(!ex.dekhengst)chg.push("op je lijst Dekhengsten");if(km(ex)===null||Math.abs((km(ex)||0)-sdg)>.05)chg.push("S/D/G");if(Se(ex.stal)!==Se(r.owner))chg.push("eigenaar "+r.owner);var nsp=SPL[ri];if(!ex.inStal&&nsp.stal&&!ex.stalnaam&&hnNS(ex.name)===hnNS(nsp.name)){base.stalnaam=nsp.stal;chg.push("stalnaam "+nsp.stal)}else if(!ex.inStal&&nsp.stal&&(ex.name!==nsp.name||(ex.stalnaam||"")!==nsp.stal)&&hnNS((ex.stalnaam||"")+ex.name)===hnNS(nsp.stal+nsp.name)||!ex.inStal&&nsp.stal&&(ex.name!==nsp.name||(ex.stalnaam||"")!==nsp.stal)&&hnNS(ex.name+(ex.stalnaam||""))===hnNS(nsp.name+nsp.stal)){base.name=nsp.name;base.stalnaam=nsp.stal;chg.push("naam verbeterd: "+nsp.name+" (stalnaam "+nsp.stal+")")}
    res.push({r:r,h:ex,patch:base,chg:chg.length?chg:["niets nieuws"],same:!chg.length});return}
-  var sp=split(r.full);res.push({r:r,isNew:!0,data:Object.assign({id:M(),kind:"horse",name:sp.name,stalnaam:sp.stal,gender:"H",sireName:"",damName:"",note:"",predicaat:"",geboortedatum:"",leeftijd:"",leeftijdDatum:"",hnid:""},base)})});
+  var sp=SPL[ri];res.push({r:r,isNew:!0,data:Object.assign({id:M(),kind:"horse",name:sp.name,stalnaam:sp.stal,gender:"H",sireName:"",damName:"",note:"",predicaat:"",geboortedatum:"",leeftijd:"",leeftijdDatum:"",hnid:""},base)})});
  var seenId={},rasP={};res.forEach(function(x){if(x.h)seenId[x.h.id]=1;if(x.r&&x.r.ras)rasP[Se(x.r.ras)]=1});var anyRas=Object.keys(rasP).length>0;
  res.gone=all.filter(function(h){return h.gender==="H"&&!h.inStal&&h.dekhengst&&h.name&&!seenId[h.id]&&(!anyRas||rasP[Se(h.ras)])}).filter(function(h){return!P.rows.some(function(r){var k=hnNS(r.full);return k===hnNS(h.name)||h.stalnaam&&(k===hnNS(h.stalnaam+h.name)||k===hnNS(h.name+h.stalnaam))})}).sort(function(a,b){return(a.name||"").localeCompare(b.name||"")});res.goneRas=Object.keys(rasP);
  var mare=P.mare?keys[hnNS(P.mare)]||null:null;res.mare=mare;res.mareName=P.mare;

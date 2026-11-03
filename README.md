@@ -1,6 +1,18 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-03a: namen en stalnamen bij Merrie dekken beter herkend
+
+- In de Merrie dekken-pagina staan naam en stalnaam aan elkaar geplakt, bijvoorbeeld "Hiddevan de Gangelt", "CorazonsBoris" of "Paradise Pony'sBlock". De app haalde die soms verkeerd uit elkaar en hakte dan letters van de naam af.
+- De app kijkt nu slimmer:
+  - **'s ervoor:** "Nena's", "Paradise Pony's", "Muse's" is de stalnaam, de rest de naam.
+  - **van / v ervoor:** "van de Gangelt", "Van Holendrecht", "v stal DBB" achter de naam is de stalnaam.
+  - **Komt een stuk vaker voor op de pagina** ("Corazons", "FS") of staat het al als stalnaam in je database, dan is dat de stalnaam.
+  - **Een stuk van meer woorden** ("New woods", "Crest Valley"), korte hoofdletters ("FS") of een stuk dat in de naam van de eigenaar zit ("Grey" bij LadyGrey) is de stalnaam.
+  - **Twijfelt de app,** dan laat hij de naam heel (zoals "Castor" en "Aurélien").
+- Getest met een Mérens-pagina van 28 hengsten: alle 28 goed.
+- **Fout opgeslagen namen worden vanzelf hersteld** als je de pagina opnieuw plakt. Een hengst die als "sBoris" (stal "Corazon") in je database stond, wordt "Boris" (stal "Corazons"). Een hengst die zonder stalnaam in je database stond, krijgt zijn stalnaam erbij in plaats van dat er een dubbele bijkomt.
+
 ## Versie 2026-11-01k: rassen bij dekgeld makkelijker weghalen
 
 - Bij Fokken → Mijn dekhengsten → Prijsregels voor dekgeld staat bij een ras met eigen prijzen nu bovenaan de knop **✕ Weghalen**. Dan geldt voor dat ras weer de Standaard-prijs. Eerder stond die knop helemaal onderaan, onder de hele prijzenlijst.
