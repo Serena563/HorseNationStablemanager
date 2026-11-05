@@ -1,6 +1,14 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-05a: Preferent-route kan niet weg en zit niemand in de weg
+
+- **Paarden op de Preferent-route kunnen niet meer "Kan weg" krijgen.** Ook niet als ze op ❌ of ⚠️ staan: dan zegt de app dat ze blijven, en dat je eerst de Preferent-route uit moet zetten als ze toch weg moet.
+- **Ze tellen niet meer mee voor je fokmerrie- of dekhengstplekken per ras.** Andere paarden houden dus gewoon hun plek. Eerder namen Preferent-merries een fokmerrie-plek in, waardoor een andere merrie onder de streep kon vallen.
+- **Met fokbonus naar de Preferent-wei.** Heb je een weiland met "Preferent-route", dan gaat een Preferent-merrie met fokbonus daarheen (ook als er nog plek in een PowerHouse-team is). Ze blijft van jou, maar neemt geen stalplek meer in. Zonder fokbonus traint ze in de stal.
+- **Nakomelingen voor Preferent** kunnen ook niet weg en houden geen andere paarden tegen: ze tellen niet mee voor je fokmerrie-, dekhengst- of opvolgerplekken. Zolang ze trainen nemen ze wel een stalplek in.
+- In het Stalplan staan de Preferent-paarden zelf nu ook in de rij **Voor Preferent**, naast hun nakomelingen.
+
 ## Versie 2026-11-03a: namen en stalnamen bij Merrie dekken beter herkend
 
 - In de Merrie dekken-pagina staan naam en stalnaam aan elkaar geplakt, bijvoorbeeld "Hiddevan de Gangelt", "CorazonsBoris" of "Paradise Pony'sBlock". De app haalde die soms verkeerd uit elkaar en hakte dan letters van de naam af.
