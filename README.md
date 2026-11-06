@@ -1,6 +1,15 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-06a: Preferent-stamboom
+
+- Nieuw onder **Fokken → Preferent**: per paard met 🏆 Op weg naar Preferent een stamboom van boven naar beneden.
+  - Bovenaan de stammerrie, met wat zij nog moet halen voor Preferent.
+  - Daaronder 3 plekken voor nakomelingen die Elite moeten worden, met per veulen wat het nog mist (leeftijd, SDG, niveau, Ster-veulens).
+  - Onder elk veulen 2 plekken voor kleinkinderen die Ster moeten halen.
+  - Een lege plek is een vak met een stippellijn. Is de merrie drachtig, dan staat het verwachte veulen in de eerste lege plek.
+- Veulens worden gevonden via moeder en vader. Heb je meer veulens dan plekken, dan staan de verste bovenaan en de rest eronder. Veulens met SDG onder 24 kunnen geen Elite worden en staan apart.
+
 ## Versie 2026-11-05a: Preferent-route kan niet weg en zit niemand in de weg
 
 - **Paarden op de Preferent-route kunnen niet meer "Kan weg" krijgen.** Ook niet als ze op ❌ of ⚠️ staan: dan zegt de app dat ze blijven, en dat je eerst de Preferent-route uit moet zetten als ze toch weg moet.
