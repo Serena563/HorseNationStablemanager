@@ -1,6 +1,25 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-08c: Markt
+
+- Nieuw onder **Stal → Markt**: plak de Paardenmarkt uit Horse Nation (alles selecteren). Je kunt hem ook in het Plakvlak plakken; dan krijg je een knop naar de Markt.
+- De app laat alleen paarden van jouw rassen zien die beter zijn dan je zwakste fokmerrie of dekhengst van dat ras: ⭐ beter dan je beste, 👍 beter dan je zwakste. Met een vinkje zie je ook de rest.
+- Per paard zie je SDG, inteelt, niveaus (en of de Western-fokbonus klaar is), bod, direct kopen, verkoper en einddatum.
+- **🔍 Nader bekijken**: plak de paardpagina en daaronder de stamboom. De app laat zien met welke van jouw merries of hengsten dat paard zonder inteelt kan, of het gedeelde voorouders heeft met jouw paarden van dat ras, en zegt dan ✅ kopen waard, 🤔 twijfel of ❌ niet kopen, en welk paard het vervangt (of dat je nog plek hebt).
+- Vinkje **Vergelijk de prijs** (staat standaard uit): prijzen van vergelijkbare verkochte paarden uit de veilinggeschiedenis en de Handelaar-schatting van de app.
+
+## Versie 2026-11-08b: wissel-melding voor de teams
+
+- Onder **🚚 Verhuizen** staat nu **🔁 Beter paard voor een team**. Is een team vol en heb je een paard met fokbonus dat er beter in past dan het zwakste paard in dat team, dan zegt de app: "B kan in Team X de plek van A innemen", met de aanleg van beide paarden.
+- Paarden die je bij Teams zelf hebt vastgezet (📌) worden niet voor een wissel voorgesteld.
+
+## Versie 2026-11-08a: Verhuizen kijkt naar je echte teams
+
+- **Verhuizen kijkt nu naar waar je paarden echt staan.** Een paard dat in het Kladblok in een PowerHouse-team staat (bijvoorbeeld de subgroep Cross country) blijft in de stal en hoeft niet naar de wei.
+- **Een paard uit de wei wordt alleen nog teruggehaald als dat team echt plek heeft.** De app telt per team de paarden die er nu al in staan, en houdt zich aan je maximum per team.
+- **Hersteld:** sinds 3 november herkende de app je groepsnamen (zoals PowerHouse) niet meer goed, omdat twee onderdelen dezelfde naam hadden. Daardoor klopten Verhuizen, Teams en het Stalplan soms niet. Dat werkt nu weer.
+
 ## Versie 2026-11-06a: Preferent-stamboom
 
 - Nieuw onder **Fokken → Preferent**: per paard met 🏆 Op weg naar Preferent een stamboom van boven naar beneden.
