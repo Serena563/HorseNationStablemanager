@@ -1018,6 +1018,7 @@ html, body {
 .mk-head{font-size:15px}.mk-j{margin:3px 0;font-weight:600}
 .mk-deep{margin-top:8px;border-top:1px dashed var(--border);padding-top:8px}
 .mk-res{margin-top:6px;font-size:14px}
+.mk-lab{font-weight:600;font-size:14px;margin:8px 0 2px}
 .mk-verdict{margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--bg-panel-2);border:1px solid var(--border)}
 .mk-verdict.ok{border-color:#7aa874}.mk-verdict.no{border-color:#c46a4f}.mk-verdict.mid{border-color:#d8b64a}
 .mk-tab .chk{font-size:14px;display:inline-flex;gap:6px;align-items:center;margin:3px 0}
@@ -1864,7 +1865,25 @@ function hnParseMarkt(text){var L=text.replace(/\r/g,"").split("\n").map(functio
  var list=[],hist=[],end=hi>0?hi:L.length;
  for(var j=st;j<end;j++){var r=row(j);if(!r)continue;var q=r.q;r.gender=q[0]==="♂"?"H":q[0]==="♀"?"M":"";r.bod=q[1]&&q[1]!=="–"?q[1]:"";r.direct=q[2]&&q[2]!=="–"?q[2]:"";r.bids=+q[3]||0;r.seller=q[4]||"";r.ends=q[5]||"";list.push(r);j+=3}
  if(hi>0)for(var k=hi+1;k<L.length;k++){var h=row(k);if(!h)continue;var x=h.q;h.seller=x[0]||"";h.buyer=x[1]&&x[1]!=="–"?x[1]:"";h.price=x[2]&&x[2]!=="–"?hnMoneyN(x[2]):null;h.when=x[4]||"";h.state=x[5]||"";hist.push(h);k+=3}
+ try{hnMkSplitAll(list.concat(hist),typeof HN_ACT!=="undefined"?hnAllHorses(HN_ACT.groups||[],HN_ACT.ext||[]):[])}catch(e){list.concat(hist).forEach(function(r){r.name=r.full;r.stal=""})}
  return list.length||hist.length?{type:"markt",list:list,hist:hist}:null}
+function hnMkSplitAll(rows,all){var names=rows.map(function(r){return r.full}),up=function(c){return!!c&&c!==c.toLowerCase()&&c===c.toUpperCase()},lo=function(c){return!!c&&c!==c.toUpperCase()};
+ var known={};(all||[]).forEach(function(h){if(h.stalnaam)known[hnNS(h.stalnaam)]=h.stalnaam});
+ var okPre=function(n,i){return i>=2&&i<n.length-1&&up(n[i])&&n[i-1]!==" "&&!/^veulen van/i.test(n.slice(0,i))};
+ var okSuf=function(n,i){var s=n.slice(i);return i>=2&&n[i-1]!==" "&&(up(s[0])||/^v(an)?\s/.test(s))};
+ var pre=function(a,b){var k=0;while(k<a.length&&k<b.length&&a[k]===b[k])k++;for(var i=k;i>=2;i--)if(okPre(a,i)&&okPre(b,i))return i;return 0};
+ var suf=function(a,b){var k=0;while(k<a.length&&k<b.length&&a[a.length-1-k]===b[b.length-1-k])k++;for(var j=k;j>=2;j--){var ia=a.length-j,ib=b.length-j;if(okSuf(a,ia)&&okSuf(b,ib))return j}return 0};
+ var one=function(n){var full=n;try{var V=hnStalVariants(n,all||[],[]);if(V.length>1)return{name:V[V.length-1].name,stal:V[V.length-1].stal}}catch(e){}
+  var m0=n.match(/^(.+?)-\s+(\S.*)$/);if(m0)return{name:m0[1].trim(),stal:m0[2]};var m1=n.match(/^(.+?[a-zà-ÿ'’])([A-Z][A-Za-z]{0,4})$/);if(m1&&(m1[2].match(/[A-Z]/g)||[]).length>=2)return{name:m1[1],stal:m1[2]};
+  var bp=0,bs=0;names.forEach(function(o){if(o===n)return;var p=pre(n,o),s=suf(n,o);if(p>bp)bp=p;if(s>bs)bs=s});
+  if(bp>=2&&bp<n.length-1)return{name:n.slice(bp).trim(),stal:n.slice(0,bp).trim()};
+  if(bs>=2&&bs<n.length-1)return{name:n.slice(0,n.length-bs).trim(),stal:n.slice(n.length-bs).trim()};
+  var m=n.match(/^(.+?[a-zà-ÿ'’])([A-Z][A-Za-z]{0,4})$/);if(m&&(m[2].match(/[A-Z]/g)||[]).length>=2)return{name:m[1],stal:m[2]};
+  m=n.match(/^(.+?[a-zà-ÿ])(van [A-Z].*|v stal .*)$/);if(m)return{name:m[1],stal:m[2]};
+  m=n.match(/^(.+?)-\s+(\S.*)$/);if(m)return{name:m[1].trim(),stal:m[2]};
+  for(var i=1;i<n.length-1;i++)if(up(n[i])&&lo(n[i+1])&&n[i-1]!==" "&&(lo(n[i-1])||up(n[i-1])||/['’*]/.test(n[i-1])))return/^veulen van /i.test(n)?{name:n.slice(0,i),stal:n.slice(i)}:{name:n.slice(i),stal:n.slice(0,i)};
+  return{name:full,stal:""}};
+ rows.forEach(function(r){var x=one(r.full);r.name=x.name;r.stal=x.stal})}
 function hnMoneyN(s){var v=parseInt(String(s||"").replace(/[^\d]/g,""),10);return isNaN(v)?null:v}
 function hnLvIdx(id,s){var d=HN_DISC.find(function(x){return x.id===id});return d?d.levels.indexOf(s):-1}
 function hnMkFb(lv){var top=function(id){var d=HN_DISC.find(function(x){return x.id===id});return hnLvIdx(id,lv[id])===d.levels.length-1};return top("rei")&&top("tra")&&top("wp")}
@@ -1905,23 +1924,22 @@ function HnMarktTab(props){var all=hnAllHorses(props.groups,props.externalHorses
  var est=function(r,d){try{var h={id:"mkt_v",name:"x",ras:r.ras,gender:r.gender,sdgS:String(r.S),sdgD:String(r.D),sdgG:String(r.G),leeftijd:d&&d.age?String(d.age):"4",niveaus:{}};HN_DISC.forEach(function(x){var i=hnLvIdx(x.id,(d&&d.lvl[x.id])||r.lv[x.id]);h.niveaus[x.id]=i<0?0:i});var v=hnValue(h,all,hnHorseMap(all));return v&&!v.err?"app schat de Handelaar op ~"+eur(v.est):null}catch(e){return null}};
  var paste=function(cur,setV){return function(e){var h=e.clipboardData&&e.clipboardData.getData("text/html");if(h&&/<li/i.test(h)&&/\/horses\/\d+/.test(h)){var md="";try{md=hnHtmlToMd(h)}catch(er){}if(md&&hnParseTree(md)){e.preventDefault();setV(cur.trim()?cur.replace(/\s+$/,"")+"\n\n"+HN_TREE_MARK+"\n"+md:md)}}}};
  var lvTxt=function(lv){return"D "+(lv.dres||"?")+" · S "+(lv.spr||"?")+" · XC "+(lv.xc||"?")+" · R "+(lv.rei||"?")+" · T "+(lv.tra||"?")+" · P "+(lv.wp||"?")};
- var card=function(x){var r=x.r,J=x.J,open=openK===x.key,d=deep[x.key]||"",D=d.trim()?hnMarktDeep(d,r,all,gm):null,sp=hnSPRas(hnSP(),r.ras),slots=r.gender==="H"?sp.h:sp.m,free=slots!=null&&J.pool.L.length<slots;
+ var card=function(x){var r=x.r,J=x.J,open=openK===x.key,dd=deep[x.key]||{},dp=dd.page||"",dt=dd.tree||"",d=dp+(dt.trim()?"\n\n"+HN_TREE_MARK+"\n"+dt:""),D=d.trim()?hnMarktDeep(d,r,all,gm):null,setD=function(k,v){var o=Object.assign({},deep),c=Object.assign({},o[x.key]||{});c[k]=v;o[x.key]=c;setDeep(o)},pgWrong=dp.trim()&&dp.indexOf("Eigenschappen")<0,trWrong=dt.trim()&&!(function(){try{return hnParseTree(dt)}catch(e){return null}})(),sp=hnSPRas(hnSP(),r.ras),slots=r.gender==="H"?sp.h:sp.m,free=slots!=null&&J.pool.L.length<slots;
   var verdict=null;if(D&&D.partners){var bad=[];if(J.k<2)bad.push("niet beter dan wat je al hebt");if((D.coi||r.coi)>0)bad.push("zelf "+f1(D.coi!==null?D.coi:r.coi)+"% ingeteeld");if(D.partners.length&&D.free===0)bad.push("familie van al je "+(r.gender==="H"?"merries":"hengsten")+" van dit ras");var ok=!bad.length,half=D.partners.length&&D.free<D.partners.length/2;
    verdict=HnE("div",{className:"mk-verdict "+(ok&&!half?"ok":ok?"mid":"no")},HnE("b",null,ok&&!half?"✅ Kopen waard":ok?"🤔 Twijfel":"❌ Niet kopen"),bad.length?" — "+bad.join(", "):half?" — maar familie van een groot deel van je "+(r.gender==="H"?"merries":"hengsten"):"",
     ok?HnE("div",null,free?"Je hebt nog plek ("+J.pool.L.length+" van "+slots+" "+J.rol+"plekken), dus er hoeft niemand weg.":J.repl?"Vervangt "+J.repl.name+" (SDG "+f1(km(J.repl))+") als "+J.rol+".":null):null)}
   return HnE("div",{key:x.key,className:"pred-card mk-card mk-k"+J.k},
-   HnE("div",{className:"mk-head"},HnE("b",null,r.full)," ",r.gender==="H"?"♂":"♀",HnE("span",{className:"pc-det"}," "+r.ras+" · "+r.kleur)),
+   HnE("div",{className:"mk-head"},HnE("b",null,r.name),r.stal?HnE("span",{className:"pc-det"}," ("+r.stal+")"):null," ",r.gender==="H"?"♂":"♀",HnE("span",{className:"pc-det"}," "+r.ras+" · "+r.kleur)),
    HnE("div",null,"SDG ",HnE("b",null,f1(r.sdg))," (S"+r.S+" D"+r.D+" G"+r.G+")",r.coi>0?HnE("span",{className:"sp-d"}," · ⚠️ "+f1(r.coi)+"% inteelt"):HnE("span",{className:"sp-k"}," · 0% inteelt")),
    HnE("div",{className:"mk-j"},J.t),
    HnE("div",{className:"pc-det"},lvTxt(r.lv)+(hnMkFb(r.lv)?" · ✓ Western-fokbonus":"")),
    HnE("div",{className:"pc-det"},(r.bod?"Bod "+r.bod+" · ":"")+(r.direct?"Direct kopen "+r.direct:"geen direct kopen")+" · "+r.bids+" bieding"+(r.bids===1?"":"en")+" · "+r.seller+" · eindigt "+r.ends),
    showPrice?HnE("div",{className:"pc-det"},"💰 "+hist(r)+(function(){var e=est(r,D);return e?" · "+e:""})()):null,
    HnE("button",{type:"button",className:"fok-btn"+(open?" on":""),style:{marginTop:"6px"},onClick:function(){setOpenK(open?null:x.key)}},open?"Sluiten":"🔍 Nader bekijken"),
-   open?HnE("div",{className:"mk-deep"},HnE("p",{className:"ras-hint"},"Open dit paard in het spel. Kopieer de paardpagina (alles selecteren) en plak hem hier. Open dan de stamboom, kopieer die ook en plak hem eronder. Dan kijkt de app naar inteelt met jouw paarden."),
-    HnE("textarea",{className:"imp-ta",rows:5,value:d,placeholder:"Plak hier de paardpagina en daarna de stamboom…",onPaste:paste(d,function(v){var o=Object.assign({},deep);o[x.key]=v;setDeep(o)}),onChange:function(e){var o=Object.assign({},deep);o[x.key]=e.target.value;setDeep(o)}}),
+   open?HnE("div",{className:"mk-deep"},HnE("p",{className:"ras-hint"},"Open dit paard in het spel en kopieer de pagina\u2019s (alles selecteren). Dan kijkt de app naar inteelt met jouw paarden."),HnE("div",{className:"mk-lab"},"1. Paardpagina"),HnE("textarea",{className:"imp-ta",rows:3,value:dp,placeholder:"Plak hier de paardpagina\u2026",onChange:function(e){setD("page",e.target.value)}}),pgWrong?HnE("p",{className:"sp-d"},"Dit lijkt niet op de paardpagina (ik zie geen \u2018Eigenschappen\u2019). Hoort dit in het stamboomvak?"):dp.trim()?HnE("p",{className:"sp-k"},"\u2713 Paardpagina gelezen"):null,HnE("div",{className:"mk-lab"},"2. Stamboom"),HnE("textarea",{className:"imp-ta",rows:3,value:dt,placeholder:"Plak hier de stamboom\u2026",onPaste:function(e){var h=e.clipboardData&&e.clipboardData.getData("text/html");if(h&&/<li/i.test(h)&&/\/horses\/\d+/.test(h)){var md="";try{md=hnHtmlToMd(h)}catch(er){}if(md&&hnParseTree(md)){e.preventDefault();setD("tree",md)}}},onChange:function(e){setD("tree",e.target.value)}}),trWrong?HnE("p",{className:"sp-d"},dt.indexOf("Eigenschappen")>=0?"Dit is de paardpagina, niet de stamboom. Zet hem in vak 1.":"Hier herken ik geen stamboom. Kopieer de hele stamboompagina (alles selecteren)."):dt.trim()?HnE("p",{className:"sp-k"},"\u2713 Stamboom gelezen"):null,
     D?HnE("div",{className:"mk-res"},
      HnE("div",null,(D.age!==null?"Leeftijd "+f1(D.age).replace(",0","")+" jaar · ":"")+(D.exact!==null?"SDG exact "+f1(D.exact)+" · ":"")+(D.coi!==null?"inteelt "+f1(D.coi)+"%":"")+(D.premie?" · "+D.premie+"e premie":"")),
-     !D.tree?HnE("p",{className:"sp-d"},"Nog geen stamboom gevonden. Plak de stamboompagina onder de paardpagina."):HnE("div",null,
+     !D.tree?HnE("p",{className:"sp-d"},"Nog geen stamboom. Plak de stamboom in vak 2."):HnE("div",null,
       D.partners.length?HnE("div",null,HnE("b",null,D.free+" van "+D.partners.length)," "+(r.gender==="H"?"merries":"hengsten")+" van jou zonder inteelt met dit paard.",HnE("ul",{className:"vd-list"},D.partners.map(function(p){return HnE("li",{key:p.h.id},p.h.name+": ",p.F<1e-9&&!p.rel?HnE("span",{className:"sp-k"},"0% ✓"):HnE("span",{className:"sp-d"},(p.F>0?f1(p.F*100)+"%":"")+(p.rel?" "+p.rel:"")+(p.shared.length?" (via "+p.shared.join(", ")+")":"")))}))):HnE("p",null,"Je hebt geen "+(r.gender==="H"?"merries":"hengsten")+" van dit ras om mee te vergelijken."),
       HnE("div",{className:"pc-det"},D.sharedOwn.length?"Gedeelde voorouders met je eigen "+r.ras+"s: "+D.sharedOwn.slice(0,6).join(", ")+(D.sharedOwn.length>6?" …":""):"✓ Vers bloed: geen gedeelde voorouders met je eigen "+r.ras+"s (4 generaties)."),
       verdict)):null):null)};
@@ -3380,7 +3398,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-08c";
+var HN_VERSION="2026-11-08d";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};

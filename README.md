@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-08d: Markt netter
+
+- In de Markt staan de naam van het paard en de stalnaam nu los van elkaar, bijvoorbeeld "Sancho (SsihV)" in plaats van "SsihVSancho". De app leidt dat af uit de andere paarden op de markt en de stalnamen die hij al kent, dus heel af en toe kan een splitsing niet kloppen.
+- Bij Nader bekijken zijn er nu twee aparte vakken: 1. Paardpagina en 2. Stamboom. De app waarschuwt als je iets in het verkeerde vak plakt.
+
 ## Versie 2026-11-08c: Markt
 
 - Nieuw onder **Stal → Markt**: plak de Paardenmarkt uit Horse Nation (alles selecteren). Je kunt hem ook in het Plakvlak plakken; dan krijg je een knop naar de Markt.
