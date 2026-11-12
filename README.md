@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-12a: stalnamen in hoofdletters los van de naam
+
+- Hengsten van andere spelers met een stalnaam in hoofdletters die vastgeplakt zat aan de naam (zoals "CSFedde", "QSSahar", "MYSTAtlas") worden nu goed gesplitst: naam "Fedde", stalnaam "CS". Dat gebeurt bij Merrie dekken en bij Nakomelingen plakken.
+- Paarden die al zo in je database stonden, worden bij het openen van de app één keer rechtgezet. Oude verwijzingen (bijvoorbeeld een veulen met vader "CSFedde") blijven gewoon werken.
+- Bij Gegevens nakijken staat nu duidelijker dat het over de dekking gaat: "gedekt door Fedde, maar die hengst staat niet in je database (dit gaat over de dekking, niet over de stamboom)".
+
 ## Versie 2026-11-08d: Markt netter
 
 - In de Markt staan de naam van het paard en de stalnaam nu los van elkaar, bijvoorbeeld "Sancho (SsihV)" in plaats van "SsihVSancho". De app leidt dat af uit de andere paarden op de markt en de stalnamen die hij al kent, dus heel af en toe kan een splitsing niet kloppen.
