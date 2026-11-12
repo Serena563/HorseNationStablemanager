@@ -1,6 +1,15 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-12b: Creditveulen
+
+- Nieuw onder **Stal → Creditveulen**: per ras ziet de app of een creditveulen verstandig is. Een creditveulen heeft geen ouders, dus het is altijd nieuw bloed; de app kijkt daarom of jouw ras het nodig heeft.
+- 🔴 Nieuw bloed nodig: een merrie heeft geen enkele hengst zonder inteelt (ook niet bij de dekhengsten van anderen), of meer dan 60% van de combinaties geeft inteelt. 🟡 Krap: een merrie heeft nog maar één hengst, een eigen hengst kan bij geen van je merries, of 40% van de combinaties geeft inteelt. 🟢 Genoeg keus.
+- Per ras zegt de app of je beter een hengst of een merrie kunt nemen, en waarom. Per merrie zie je hoeveel hengsten zonder inteelt er nog zijn. Kwaliteit telt niet mee.
+- Is er nieuw bloed nodig en is je stal vol, dan zegt de app dat je eerst plek moet maken.
+- Vul in wanneer je je laatste creditveulen kocht; dan zie je wanneer je er weer een kunt kopen (1 keer per maand).
+- De grens voor inteelt is dezelfde als in je Stalplan.
+
 ## Versie 2026-11-12a: stalnamen in hoofdletters los van de naam
 
 - Hengsten van andere spelers met een stalnaam in hoofdletters die vastgeplakt zat aan de naam (zoals "CSFedde", "QSSahar", "MYSTAtlas") worden nu goed gesplitst: naam "Fedde", stalnaam "CS". Dat gebeurt bij Merrie dekken en bij Nakomelingen plakken.
