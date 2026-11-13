@@ -1,6 +1,15 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-13b: Teams op volgorde
+
+- De teams staan nu in de volgorde van de disciplines, van links naar rechts: Dressuur, Springen, Cross-country, Reining, Trail, Western Pleasure. Ook het menu "Verplaatsen naar…" volgt die volgorde. Wie in welk team zit, verandert niet.
+
+## Versie 2026-11-13a: rasnamen altijd hetzelfde geschreven
+
+- Rasnamen die alleen verschillen in hoofdletters, accenten of spaties zijn nu één ras: "Belgisch trekpaard" wordt "Belgisch Trekpaard", "Merens" wordt "Mérens", "Fries " wordt "Fries".
+- De app kiest de schrijfwijze van het spel. Dat gebeurt bij het openen voor al je paarden (Kladblok, database en kleurbanden) en ook als je zelf een ras typt.
+
 ## Versie 2026-11-12b: Creditveulen
 
 - Nieuw onder **Stal → Creditveulen**: per ras ziet de app of een creditveulen verstandig is. Een creditveulen heeft geen ouders, dus het is altijd nieuw bloed; de app kijkt daarom of jouw ras het nodig heeft.
