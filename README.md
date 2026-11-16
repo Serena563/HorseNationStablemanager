@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-16l: Paard uit je database weer toevoegen
+
+- Bij **＋ Paard toevoegen** in het Kladblok kies je nu eerst: een nieuw, leeg paard, of een paard uit je database (bijv. via het Plakvlak toegevoegd, of eerder uit je Kladblok gehaald). Zoek op naam, kies het paard en daarna de groep; alle gegevens gaan mee.
+- Op de computer staat de knop **＋ Paard toevoegen** weer bovenaan de lijst.
+
 ## Versie 2026-11-16k: Preferent-wei met nakomelingen
 
 - In Weiland-indeling horen de veulens van een paard op de Preferent-route (🏆 Op weg naar Preferent) nu ook in de Preferent-wei, net als hun moeder of vader. Niamh, dochter van Misneach, hoeft dus niet meer naar The Ladies.
