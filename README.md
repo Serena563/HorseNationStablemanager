@@ -1,6 +1,19 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-16i: Weiland-indeling
+
+- Nieuw onder **Stal → Weiland-indeling**: per weiland zie je wie erin hoort, hoe vol het straks is mét de veulens die eraan komen, en wie er moet wisselen en vóór welke datum.
+- Een drachtige merrie telt voor twee plekken (zij en haar veulen). Wordt een weiland te vol voor de veulens, dan stelt de app voor welke merrie (niet drachtig) naar je vrije weiland gaat. Met **✓ Gedaan** onthoudt de app de nieuwe plek, met **📌 Laat staan** blijft een paard waar het staat.
+- Overzicht van de bevallingen in de wei, met datum en weiland.
+- Een weilandgroep in het Kladblok kan nu op **🌾 Verdeeld over weilanden** staan. Dan maak je één grote groep voor de merries en één voor de hengsten, en hoef je in het Kladblok niets meer te verslepen: de app houdt per paard bij in welk weiland het staat.
+- Bij Stalplan staat nu alleen nog de telling per weiland, met een knop naar Weiland-indeling (geen dubbele namenlijst meer).
+
+## Versie 2026-11-16h: Kladblok — plekken bovenaan, Groepen beheren kaal
+
+- Bovenaan het Kladblok staat weer hoe vol je stal en elk weiland is (bijv. 🏠 Stal 23 / 40 · 🌾 The Ladies 16 / 16 · 🌾 The Dudes 14 / 16 …), op telefoon en computer.
+- **Groepen beheren** (computer) laat alleen de groepen zien: paarden slepen met ⋮⋮, nieuwe groep of subgroep maken, en via ⋯ een groep hernoemen, verplaatsen of op stal/wei zetten. Zoeken, filters, meldingen, legenda en het bewerken van een paard zijn daar weg.
+
 ## Versie 2026-11-16g: Nu trainen en Plakken in de nieuwe stijl
 
 - **Nu trainen**: de gekleurde tegels zijn een rustige lijst geworden: per paard een stip (groen = binnen 45 min, geel = krap, grijs = klaar, paars = buiten speeltijd), naam, ras, de discipline die het eerst moet en de tijd. Tik op een paard en alleen díe kaart klapt eronder open, met de niveaus, het percentage en de inschrijftijd. Nog een keer tikken klapt hem dicht.
