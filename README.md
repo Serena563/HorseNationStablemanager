@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-16e: Vandaag op de telefoon opgeruimd
+
+- Onder "Alle meldingen tonen" staan de vakjes (stal, wei, drachtig), Trainen, Ruimte en Bevallingen niet meer dubbel; alleen de meldingen die er nog niet boven staan.
+- Bij Bevallen kun je op het paard tikken: dan opent meteen het Bevallen-venster om het veulen in te vullen. Elke merrie heeft nu een knop Bevallen (vandaag groen, morgen omlijnd).
+
 ## Versie 2026-11-16d: telefoon: ☰-menu en teksttabs op alle schermen
 
 Alleen op de telefoon.
