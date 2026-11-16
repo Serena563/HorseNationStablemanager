@@ -1,6 +1,23 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-16g: Nu trainen en Plakken in de nieuwe stijl
+
+- **Nu trainen**: de gekleurde tegels zijn een rustige lijst geworden: per paard een stip (groen = binnen 45 min, geel = krap, grijs = klaar, paars = buiten speeltijd), naam, ras, de discipline die het eerst moet en de tijd. Tik op een paard en alleen díe kaart klapt eronder open, met de niveaus, het percentage en de inschrijftijd. Nog een keer tikken klapt hem dicht.
+- **Plakken**: het plakvak staat bovenaan; de uitleg per soort pagina (Mijn stal, Wedstrijduitslagen, Pagina van een paard, Stamboom, Merrie dekken …) is ingeklapt tot één regel die je openklikt.
+- Geldt voor telefoon, half scherm en computer.
+
+## Versie 2026-11-16f: nieuwe computerversie (eerste stap)
+
+- Mosgroen thema nu ook op de computer.
+- **Menu links**: Vandaag, Kladblok, Trainen, Fokken, Stal, Plakken; bij het onderdeel waar je bent staan de pagina's eronder. Instellingen onderaan.
+- **Half scherm en tablet staand** (601–1000 px, bijv. naast Horse Nation): het menu wordt een smalle strook met icoontjes, de pagina's van een onderdeel staan als tabs onder de titel.
+- **Kop** zoals in de mockup: klein grijs het onderdeel of de datum, groot de pagina.
+- **Vandaag**: vakjes bovenaan en de kaarten Bevallen, Trainen en Ruimte naast elkaar; "Alle meldingen tonen" voor de rest.
+- **Kladblok**: lijst links, het paard rechts ernaast met Basis · Fokken · Training · Stamboom en Opslaan. Op een half scherm opent het paard in de plaats van de lijst, met ‹ terug. Groepen beheren (toevoegen, ordenen, stal/wei) zit achter de knop "Groepen beheren".
+- Onderverdelingen zijn overal teksttabs; kaarten hebben dezelfde ronde vorm.
+- Nog niet in de nieuwe opbouw: de inhoud van Trainen, Fokken, Stal, Plakken en Instellingen (wel al de nieuwe kleuren, tabs en kaarten).
+
 ## Versie 2026-11-16e: Vandaag op de telefoon opgeruimd
 
 - Onder "Alle meldingen tonen" staan de vakjes (stal, wei, drachtig), Trainen, Ruimte en Bevallingen niet meer dubbel; alleen de meldingen die er nog niet boven staan.
