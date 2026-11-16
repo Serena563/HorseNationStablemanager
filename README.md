@@ -1,6 +1,14 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-16k: Preferent-wei met nakomelingen
+
+- In Weiland-indeling horen de veulens van een paard op de Preferent-route (🏆 Op weg naar Preferent) nu ook in de Preferent-wei, net als hun moeder of vader. Niamh, dochter van Misneach, hoeft dus niet meer naar The Ladies.
+
+## Versie 2026-11-16j: Weiland-indeling rustiger
+
+- Staat een paard in je vrije weiland en is daar plek (ook voor een veulen), dan blijft het daar staan. De app stelt alleen nog een wissel voor als het echt moet, of als een paard in het weiland van een ander doel staat (bijvoorbeeld een merrie bij de hengsten).
+
 ## Versie 2026-11-16i: Weiland-indeling
 
 - Nieuw onder **Stal → Weiland-indeling**: per weiland zie je wie erin hoort, hoe vol het straks is mét de veulens die eraan komen, en wie er moet wisselen en vóór welke datum.

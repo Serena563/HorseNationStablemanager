@@ -2530,7 +2530,8 @@ function hnWeiPlanAll(groups,ext){var WL=hnWeiList(),T=hnToday(),gm=hnGrpMap(gro
  var preg=function(h){return h.gender!=="H"&&!!(h.gedekt||h.echoPositief)};
  var need=function(h){return 1+(preg(h)?1:0)};
  var has=function(d){return WL.some(function(w){return w.doel===d})};
- var doelOf=function(h){if(inbound[h.id])return inbound[h.id];if(h.gender==="H")return has("hengsten")?"hengsten":"";if(hnPrefOn(h)&&has("pref"))return"pref";return has("merries")?"merries":""};
+ var PREF=all.filter(function(h){return h.inStal&&hnPrefOn(h)}),prefKid=function(h){return PREF.find(function(p){return p.id!==h.id&&(hnNm(h.damName,p)||hnNm(h.sireName,p))})||null};
+ var doelOf=function(h){if(inbound[h.id])return inbound[h.id];if(has("pref")&&(hnPrefOn(h)&&h.gender!=="H"||prefKid(h)))return"pref";if(h.gender==="H")return has("hengsten")?"hengsten":"";return has("merries")?"merries":""};
  var left={},asg={},why={};WL.forEach(function(w){left[w.id]=+w.plekken||0});
  var put=function(h,wid,r){asg[h.id]=wid;left[wid]-=need(h);if(r)why[h.id]=r};
  var fits=function(wid,h){return left[wid]!==void 0&&left[wid]>=need(h)};
@@ -2538,12 +2539,12 @@ function hnWeiPlanAll(groups,ext){var WL=hnWeiList(),T=hnToday(),gm=hnGrpMap(gro
  var rest=horses.filter(function(h){return asg[h.id]===void 0});
  rest.forEach(function(h){if(!doelOf(h)&&left[cur[h.id]]!==void 0)put(h,cur[h.id])});
  var bd=function(h){return h.bevallingsdatum||"9999"},drop=function(h){return h.sale||hnCatOf(h,gm)==="weg"?1:0},fire=function(h){return h.status==="fire"||h.status==="heart"?1:0};
- var over=[];
+ var over=[],VR=WL.filter(function(w){return w.doel==="vrij"}).map(function(w){return w.id});
  ["merries","hengsten","pref"].forEach(function(d){var ws=WL.filter(function(w){return w.doel===d}).map(function(w){return w.id});if(!ws.length)return;
   var inD=function(h){return ws.indexOf(cur[h.id])>=0?1:0};
   var L=rest.filter(function(h){return asg[h.id]===void 0&&doelOf(h)===d});
   L.sort(function(a,b){return inD(b)-inD(a)||(preg(b)?1:0)-(preg(a)?1:0)||drop(a)-drop(b)||fire(b)-fire(a)||(bd(a)<bd(b)?-1:bd(a)>bd(b)?1:0)||(km(b)||0)-(km(a)||0)});
-  L.forEach(function(h){var c=cur[h.id];if(ws.indexOf(c)>=0&&fits(c,h)){put(h,c);return}var w=ws.find(function(x){return fits(x,h)});if(w)put(h,w,c==="stal"?"stal":inD(h)?"":"terug");else over.push({h:h,d:d})})});
+  L.forEach(function(h){var c=cur[h.id];if(ws.indexOf(c)>=0&&fits(c,h)){put(h,c);return}if(VR.indexOf(c)>=0&&fits(c,h)){put(h,c);return}var w=ws.find(function(x){return fits(x,h)});if(w)put(h,w,c==="stal"?"stal":inD(h)?"":"terug");else over.push({h:h,d:d})})});
  var vrij=WL.filter(function(w){return w.doel==="vrij"||!w.doel}).map(function(w){return w.id}),others=WL.map(function(w){return w.id}).filter(function(id){return vrij.indexOf(id)<0});
  var noRoom=[];
  over.forEach(function(o){var h=o.h,c=cur[h.id];if(vrij.indexOf(c)>=0&&fits(c,h)){put(h,c,"vol");return}var w=vrij.find(function(x){return fits(x,h)});if(w){put(h,w,"vol");return}if(left[c]!==void 0&&fits(c,h)){put(h,c,"vol");return}w=others.find(function(x){return fits(x,h)});if(w)put(h,w,"vol2");else noRoom.push(h)});
@@ -2570,7 +2571,7 @@ function HnWeiTab(props){var groups=props.groups||[],ext=props.externalHorses||[
  if(WL.length<2||!P.doelOk)return HnE("div",{className:"pred-tab wl-tab"},HnE("p",{className:"ras-hint"},"Je hebt nog maar één weiland, of je weilanden hebben nog geen doel. Stel bij ⚙️ Instellingen → Stal je weilanden in (naam, plekken en doel: merries, hengsten, Preferent of vrij). Dan zie je hier wie in welk weiland hoort."));
  var mvs=P.moves.filter(function(m){return m.from!=="?"}),groupsBy=[];mvs.forEach(function(m){var k=whenT(m.dl),g=groupsBy.find(function(x){return x.k===k});if(!g){g={k:k,L:[]};groupsBy.push(g)}g.L.push(m)});
  return HnE("div",{className:"pred-tab wl-tab"},
-  HnE(HnInfo,null,"Hier zie je wie in welk weiland hoort en wanneer je moet wisselen. Een drachtige merrie heeft twee plekken nodig: één voor haarzelf en één voor haar veulen. Is er geen plek, dan wordt het veulen niet geboren. De app houdt daarom per weiland ruimte vrij voor de veulens die eraan komen. Dekhengsten gaan naar je hengstenwei, merries naar je merriewei, Preferent-merries naar de Preferent-wei. Is daar geen plek, dan gaat een merrie naar je vrije weiland. Wie er al staat, blijft liefst staan. Moet er iemand uit, dan eerst een paard dat weggaat of SALE staat, daarna de merrie met de laagste SDG die niet drachtig is. Wil je dat een paard ergens blijft, tik dan op 📌. Tip: maak in het Kladblok één grote weilandgroep voor de merries en één voor de hengsten, en zet de groep op 🌾 Verdeeld over weilanden. Dan hoef je in het Kladblok niets meer te verslepen: met ✓ Gedaan onthoudt de app de nieuwe plek."),
+  HnE(HnInfo,null,"Hier zie je wie in welk weiland hoort en wanneer je moet wisselen. Een drachtige merrie heeft twee plekken nodig: één voor haarzelf en één voor haar veulen. Is er geen plek, dan wordt het veulen niet geboren. De app houdt daarom per weiland ruimte vrij voor de veulens die eraan komen. Dekhengsten gaan naar je hengstenwei, merries naar je merriewei, Preferent-merries en hun veulens naar de Preferent-wei. Is daar geen plek, dan gaat een merrie naar je vrije weiland. Wie er al staat, blijft liefst staan. Moet er iemand uit, dan eerst een paard dat weggaat of SALE staat, daarna de merrie met de laagste SDG die niet drachtig is. Wil je dat een paard ergens blijft, tik dan op 📌. Tip: maak in het Kladblok één grote weilandgroep voor de merries en één voor de hengsten, en zet de groep op 🌾 Verdeeld over weilanden. Dan hoef je in het Kladblok niets meer te verslepen: met ✓ Gedaan onthoudt de app de nieuwe plek."),
   HnE("div",{className:"wl-sum"},P.rows.map(function(r){var after=r.plan.length+r.foals;return HnE("div",{key:r.w.id,className:"wl-s"+(after>r.cap?" bad":"")},HnE("div",{className:"wl-sn"},"🌾 "+wn(r.w.id)),HnE("div",{className:"wl-sv"},HnE("b",{className:r.now>r.cap?"sp-over":""},r.now+" / "+r.cap)),HnE("div",{className:"pc-det"},"straks "+r.plan.length+(r.foals?" + "+r.foals+" veulen"+(r.foals===1?"":"s"):"")))}),HnE("div",{className:"wl-s"+(P.stalN+P.stalB>P.stalCap?" bad":"")},HnE("div",{className:"wl-sn"},"🏠 Stal"),HnE("div",{className:"wl-sv"},HnE("b",{className:P.stalN>P.stalCap?"sp-over":""},P.stalN+" / "+P.stalCap)),HnE("div",{className:"pc-det"},P.stalB?"+ "+P.stalB+" veulen"+(P.stalB===1?"":"s"):"geen veulens op komst"))),
   P.unknown.length?HnE("div",{className:"pred-card wl-card wl-unk"},HnE("b",null,"📍 Waar staan deze paarden nu?"),HnE("div",{className:"pc-det"},"Ze staan in een groep die verdeeld is over je weilanden, maar de app weet nog niet in welk weiland. Kies waar ze in Horse Nation staan."),
    P.unknown.map(function(h){return HnE("div",{key:h.id,className:"wl-row"},HnE("div",{className:"wl-main"},nm(h),HnE("span",{className:"pc-det"},sx(h)+" "+(h.ras||"")+pregT(h))),HnE("select",{className:"wl-sel",value:"",onChange:function(e){if(e.target.value)setNu(h,e.target.value)}},HnE("option",{value:""},"staat in…"),WL.map(function(w){return HnE("option",{key:w.id,value:w.id},wn(w.id))})))}),
@@ -4081,7 +4082,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-16i";
+var HN_VERSION="2026-11-16k";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};
