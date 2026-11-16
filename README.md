@@ -1,6 +1,45 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-16d: telefoon: ☰-menu en teksttabs op alle schermen
+
+Alleen op de telefoon.
+
+- Bovenaan elk scherm: klein grijs het onderdeel (bijv. Fokken), groot de pagina (bijv. Dracht). Rechts een rond **☰**-knopje als een onderdeel meerdere pagina's heeft; het menu schuift van onderen op, met onderaan Instellingen. Schermen met één pagina hebben het ronde ⚙️-knopje.
+- De rij met ronde subtab-knoppen is weg.
+- Onderverdelingen binnen een pagina (zoals Drachtig · Verwacht bij anderen · Dekplanner …) zijn gewone tekst met een groen streepje onder de gekozen tab; de rij schuift opzij.
+- Kaarten hebben overal dezelfde ronde hoeken, randen en ruimte.
+
+## Versie 2026-11-16c: telefoon volgens de schets
+
+Op de telefoon hebben Vandaag, Kladblok en het paardscherm nu een eigen, eenvoudige opbouw. De computerversie is niet veranderd.
+
+- **Vandaag**: datum en titel, drie vakjes (Stal, Weiland, Drachtig), een kaart Bevallen (met knop Bevallen voor vandaag), Trainen en Ruimte komende dagen. Onder "Alle meldingen tonen" staat alles van de gewone Vandaag.
+- **Kladblok**: zoeken, rasfilters, groepen als inklapbaar kopje, per paard één rij met kleurstip (je SDG-kleur), naam, predicaat, één regel uitleg (geslacht, ras, status of dracht) en het SDG rechts. De ronde **+** voegt een paard toe.
+- **Paardscherm** met tabbladen Basis, Fokken, Training en Stamboom, grote vakken voor Stap/Draf/Galop, Geslacht en Status als knoppen (dezelfde statussen als op de computer, met 🏆 Wedstrijdpaard apart). Onderaan **Annuleren** of **Opslaan**.
+- **⋯** op het paardscherm opent de snelle acties.
+- Trainen, Fokken, Stal en Plakken zien er op de telefoon nog uit zoals op de computer, alleen in de nieuwe kleuren.
+
+## Versie 2026-11-16b: telefoon rustiger
+
+Alleen op de telefoon; de computer blijft hetzelfde.
+
+- Kladblok: witte lijst met dunne lijnen ertussen, het SDG-getal rechts in je legendakleur. Groepen zijn een kopje met het aantal; subgroepen zonder naam hebben geen eigen kader meer.
+- Stal & wei, Dekklaar en de legenda zitten samen onder **Overzicht ▸** (uitklapbaar). Zoeken en de filters blijven zichtbaar; de filters scrollen opzij.
+- Vandaag: bovenaan drie vakjes met Stal, Wei en Drachtig.
+- De app-titel en de paardentelling bovenaan zijn weg op de telefoon.
+- Groepen en subgroepen toevoegen of ordenen, en "paard uit database toevoegen", doe je op de computer.
+
+## Versie 2026-11-16a: nieuwe mobiele weergave
+
+Alleen op de telefoon (schermen tot 600 px breed). Op de computer blijft alles zoals het was.
+
+- **Mosgroen herfstthema** op de telefoon.
+- **Vaste balk onderaan** met Vandaag, Kladblok, Trainen, Fokken, Stal en Plakken. Bovenaan staat alleen de naam van het scherm met ⚙️ Instellingen; de subtabbladen (zoals Stalplan, Teams) blijven eronder.
+- **Kladblok als rustige lijst**: geen sleepgrepen en afgekapte labels meer, badges lopen door op een tweede regel. Een paard toevoegen doe je met de ronde **+**-knop rechtsonder: je kiest de groep en het nieuwe paard gaat meteen open.
+- **Paard op een eigen scherm**: tik op een paard en het opent schermvullend met precies dezelfde onderdelen als op de computer (Basis, Ouders & stal, Training & fokbonus, Dekking & dracht, Status & stalplan, enz.). Wijzigingen worden meteen bewaard; met Klaar of ‹ ga je terug.
+- **Snelle acties** via ⋯ bij een paard: Bevallen invullen, Status (met dezelfde keuzes als op de computer, plus 🏆 Wedstrijdpaard), Dekking & dracht, Verplaatsen naar groep, en SALE / Veiling / Handelaar bod aan of uit.
+
 ## Versie 2026-11-13b: Teams op volgorde
 
 - De teams staan nu in de volgorde van de disciplines, van links naar rechts: Dressuur, Springen, Cross-country, Reining, Trail, Western Pleasure. Ook het menu "Verplaatsen naar…" volgt die volgorde. Wie in welk team zit, verandert niet.
