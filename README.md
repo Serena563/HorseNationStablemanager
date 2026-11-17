@@ -1,6 +1,21 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-17d: geen dubbel Gedekt + Drachtig
+
+- In het Kladblok verdwijnt het label **Gedekt** zodra de dracht bevestigd is; dan staat alleen nog **Drachtig** met de datum. De hengst zie je als je het paard openklapt.
+
+## Versie 2026-11-17c: Kladblok-regels in twee regels, weilanden op A–Z
+
+- Elk paard in het Kladblok (computer) staat nu in twee regels: bovenaan de naam met predicaat en eventuele meldingen (SALE, gedekt, drachtig, 🔔), daaronder in rustige tekst Merrie/Hengst · ras · status. Rechts het ♀/♂-teken, het SDG-teken als het paard dat heeft, en de SDG. De achtergrondkleuren, slepen, ▸ en ⋯ blijven.
+- Weiland-indeling: de paarden per weiland staan op alfabetische volgorde.
+
+## Versie 2026-11-17b: Kladblok netter
+
+- Elke groep heeft een licht randje, zodat je ziet waar een groep begint en eindigt.
+- **+ paard toevoegen**, **↩ paard uit database** en **+ subgroep toevoegen** zitten nu in het ⋯-menu van de groep (en van een subgroep met een naam), samen met omhoog/omlaag, type, plek en verwijderen.
+- De status staat weer als tekst achter het paard: in opleiding, fokmerrie, dekhengst, dekdienst in opleiding, niet meer fokken, gaat weg.
+
 ## Versie 2026-11-17a: Kladblok op de computer — rustige stijl mét alle functies
 
 - Op de computer (en half scherm) is het Kladblok weer het volledige Kladblok, in de rustige stijl: groepen als kopje met het aantal erachter, paarden in één afgeronde lijst, minder knoppen in beeld.
