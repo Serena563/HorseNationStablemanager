@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-17i: sorteren op de telefoon (en op ras)
+
+- Op de telefoon staat de sorteerknop weer bij elke opengeklapte groep in het Kladblok: ↓ A–Z, ↓ Ras, ⇅ Eigen of ↓ SDG. De keuze is dezelfde als op de computer.
+- Nieuw: sorteren op **ras** (rassen op volgorde, daarbinnen hoogste SDG bovenaan), ook op de computer.
+
 ## Versie 2026-11-17h: PowerHouse-teams — hogere SDG mag erin
 
 - Een paard blijft niet in een team omdat het er al staat. Zit een team vol, dan neemt een ander paard de plek over als het meer aanleg heeft, óf als het een SDG heeft die minstens 0,5 hoger is en hoogstens 0,2 minder aanleg. De merrie met de laagste SDG gaat er dan als eerste uit.
