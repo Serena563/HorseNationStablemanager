@@ -1,6 +1,22 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-17h: PowerHouse-teams — hogere SDG mag erin
+
+- Een paard blijft niet in een team omdat het er al staat. Zit een team vol, dan neemt een ander paard de plek over als het meer aanleg heeft, óf als het een SDG heeft die minstens 0,5 hoger is en hoogstens 0,2 minder aanleg. De merrie met de laagste SDG gaat er dan als eerste uit.
+- Ook vastgezette paarden (📌) kunnen zo vervangen worden. 📌 betekent nu alleen nog: de app schuift dit paard niet naar een ander team.
+- Minder geschuif: een paard dat al in een team staat en daar (bijna) net zo goed past, blijft in dat team.
+- Bij Stalplan → "Beter paard voor een team" staat nu ook de SDG van beide paarden.
+
+## Versie 2026-11-17g: hengsten met fokbonus blijven in de wei
+
+- Stalplan → Verhuizen zei dat hengsten met status "dekdienst in opleiding" (zoals Demeter en Pinus) terug naar de stal moesten, ook als ze hun fokbonus al hadden. Nu hoort elke hengst met fokbonus in de hengstenwei, ongeacht zijn status.
+- Nakomelingen van een Preferent-paard (zoals Niamh van Misneach) horen ook bij Verhuizen in de Preferent-wei, en worden niet meer naar de stal of een PowerHouse-team gestuurd.
+
+## Versie 2026-11-17f: stamboom van het paard openen
+
+- **🌳 Bekijk de stamboom** bij een paard (tab Stamboom) opent nu meteen de stamboom van dát paard, in plaats van de lege Stamboom-pagina.
+
 ## Versie 2026-11-17e: paard openen in een paneel
 
 - Klik je in het Kladblok (computer) op een paard, dan opent het rechts in het rustige paardscherm met de tabjes Basis, Fokken, Training en Stamboom, en Annuleren/Opslaan onderaan. Het lange invulformulier in de lijst is weg. Het paard dat open staat heeft een groen randje in de lijst.
