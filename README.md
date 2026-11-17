@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-17e: paard openen in een paneel
+
+- Klik je in het Kladblok (computer) op een paard, dan opent het rechts in het rustige paardscherm met de tabjes Basis, Fokken, Training en Stamboom, en Annuleren/Opslaan onderaan. Het lange invulformulier in de lijst is weg. Het paard dat open staat heeft een groen randje in de lijst.
+- Op een half scherm neemt het paard de plek van de lijst in; met ‹ linksboven, Annuleren of Opslaan ga je terug naar de lijst, precies naar het paard waar je was.
+
 ## Versie 2026-11-17d: geen dubbel Gedekt + Drachtig
 
 - In het Kladblok verdwijnt het label **Gedekt** zodra de dracht bevestigd is; dan staat alleen nog **Drachtig** met de datum. De hengst zie je als je het paard openklapt.
