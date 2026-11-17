@@ -2224,6 +2224,52 @@ body.nav-hide .hn-navwrap{transform:translateY(-110%)}
 .m-back{background:none;border:0;padding:0 0 8px;font:inherit;cursor:pointer;opacity:.8}
 .d-addhorse{display:block;width:100%;margin:6px 0 10px;padding:9px 12px;border:1px dashed var(--border,#ccc);border-radius:10px;background:transparent;font:inherit;font-weight:600;color:var(--accent,#566733);cursor:pointer;text-align:left}
 .d-addhorse:hover{background:rgba(86,103,51,.07)}
+
+/* 17a kladblok computer: rustige stijl, alle functies */
+.kb-skin .topbar h1{display:none}
+.kb-skin .topbar{padding:0!important;margin:0 0 10px!important;border:0!important;background:transparent!important}
+.kb-skin .topbar .search{width:100%;max-width:none;border-radius:12px;padding:11px 14px;font-size:15px}
+.kb-skin .group{border:0!important;background:transparent!important;box-shadow:none!important;margin:22px 0 4px!important;padding:0!important}
+.kb-skin .group-head{background:transparent!important;border:0!important;padding:2px 2px 8px!important;gap:8px;min-height:0}
+.kb-skin .group-name{font-size:17px;font-weight:700}
+.kb-skin .group-count{background:none!important;border:0!important;padding:0!important;font-weight:500;opacity:.6;font-size:15px}
+.kb-skin .group-count::before{content:"\00b7  "}
+.kb-skin .group-head .draghandle,.kb-skin .group-head .collapse-btn{opacity:.35}
+.kb-skin .group-head .grp-sort,.kb-skin .group-head .hn-dots{background:transparent!important;border:1px solid transparent!important;opacity:.55;font-size:12px}
+.kb-skin .group-head:hover .grp-sort,.kb-skin .group-head:hover .hn-dots{border-color:var(--border)!important;opacity:1}
+.kb-skin .group-head .grp-move,.kb-skin .group-head .group-type,.kb-skin .group-head>.iconbtn-danger{opacity:0;transition:opacity .15s}
+.kb-skin .group-head:hover .grp-move,.kb-skin .group-head:hover .group-type,.kb-skin .group-head:hover>.iconbtn-danger,.kb-skin .group-head .group-type:focus{opacity:1}
+.kb-skin .group-body{padding:0!important;background:transparent!important;border:0!important}
+.kb-skin .subgroup{border:0!important;background:transparent!important;padding:0!important;margin:0 0 12px!important}
+.kb-skin .subgroup-head{padding:0 2px 4px!important;min-height:0;background:transparent!important;border:0!important}
+.kb-skin .subgroup-head .subgroup-name{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:.65}
+.kb-skin .subgroup{position:relative}.kb-skin .subgroup-head.sg-noname{position:absolute!important;right:0;bottom:0;height:auto;padding:0!important;z-index:2}
+.kb-skin .subgroup-head.sg-noname .subgroup-name{display:none}
+
+.kb-skin .subgroup-head .hn-dots,.kb-skin .subgroup-head .sub-move,.kb-skin .subgroup-head .iconbtn-danger{opacity:0;transition:opacity .15s}
+.kb-skin .subgroup:hover>.subgroup-head .hn-dots,.kb-skin .subgroup:hover>.subgroup-head .sub-move,.kb-skin .subgroup:hover>.subgroup-head .iconbtn-danger{opacity:1}
+.kb-skin .subgroup-head.sg-noname{justify-content:flex-end;display:flex}
+.kb-skin .subgroup-items{border:1px solid var(--border)!important;border-radius:14px!important;overflow:hidden;background:var(--bg-panel)!important;padding:0!important;gap:0!important}
+.kb-skin .subgroup-empty-drop{border:0!important;margin:0!important;padding:12px!important;opacity:.6}
+.kb-skin .horsecard{margin:0!important;border-radius:0!important;border-top:0!important;border-right:0!important;border-bottom:1px solid rgba(60,55,30,.09)!important;border-left-width:4px!important;box-shadow:none!important}
+.kb-skin .horsecard:last-child{border-bottom:0!important}
+.kb-skin .horsecard-row{padding:12px 14px 12px 6px!important;min-height:30px;gap:8px}
+.kb-skin .horsecard-row .draghandle{opacity:.25}
+.kb-skin .horsecard:hover .horsecard-row .draghandle{opacity:.7}
+.kb-skin .horse-name{font-size:16px;font-weight:600}
+.kb-skin .horse-sdg{font-weight:700;font-size:15px}
+.kb-skin .horse-ras{opacity:.75}
+.kb-skin .horsecard-row .hn-mdots{display:inline-flex!important;background:transparent;border:0;font-size:18px;opacity:.55;cursor:pointer;padding:0 4px}
+.kb-skin .horsecard-row .hn-mdots:hover{opacity:1}
+.kb-skin .horsecard-edit{border-top:1px solid rgba(60,55,30,.09);background:var(--bg-panel)}
+.kb-skin .subgroup>.addbtn,.kb-skin .subgroup>.restore-btn,.kb-skin .group-body>.addbtn-sub,.kb-skin .addbtn-sub{background:none!important;border:0!important;box-shadow:none!important;color:var(--accent)!important;font-size:13px!important;padding:6px 6px 0!important;margin:0 8px 0 0!important;border-radius:0!important;opacity:.85}
+.kb-skin .subgroup>.addbtn:hover,.kb-skin .restore-btn:hover,.kb-skin .addbtn-sub:hover{opacity:1;text-decoration:underline}
+.kb-skin .restore-box{margin-top:8px}
+.kb-skin .group-head .group-name{flex:0 1 auto!important}
+.kb-skin .group-head .group-count{margin-right:auto!important}
+.kb-skin .subgroup{margin:0 0 4px!important}
+.kb-skin .group-body>.addbtn-sub{margin-top:0!important;padding-top:2px!important}
+.kb-skin .subgroup-head:not(.sg-noname){margin-top:8px}
 </style>
 </head>
 <body>
@@ -4090,7 +4136,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-16l";
+var HN_VERSION="2026-11-17a";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};
@@ -4429,7 +4475,7 @@ function hnMLine(h){var x=[];if(h.gender)x.push(h.gender==="H"?"Hengst":"Merrie"
  else{var st=h.status||"none";x.push(st==="none"?"in opleiding":st==="fire"?"fokmerrie":st==="heart"?"dekhengst":st==="dekopl"?"dekdienst in opleiding":st==="cross"?"gaat weg":st==="warn"?hnWegTxt(h):"")}
  if(h.wedstrijd)x.push("🏆");if(h.sale)x.push("SALE");return x.filter(Boolean).join(" · ")}
 var HN_MGO=(function(){try{return JSON.parse(localStorage.getItem("hn-mgo")||"null")}catch(e){return null}})();
-function HnMKbSwitch(props){var mob=hnUseMobile(),ms=z.useState(!1),man=ms[0],setMan=ms[1];if(mob)return HnE(HnMKladblok,props);if(man)return HnE("div",{className:"kb-manage"},HnE("div",{className:"kb-man-h"},HnE("button",{type:"button",className:"m-btn2 m-back",onClick:function(){setMan(!1)}},"\u2039 Terug naar de lijst"),HnE("span",{className:"pc-det"},"Groepen beheren: sleep paarden met \u22EE\u22EE naar een andere groep, maak onderaan een nieuwe groep, of gebruik \u22EF bij een groep om hem te hernoemen, te verplaatsen of op stal/wei te zetten.")),props.desk);return HnE(HnMKladblok,Object.assign({},props,{wide:!0,onManage:function(){setMan(!0)}}))}
+function HnMKbSwitch(props){var mob=hnUseMobile();if(mob)return HnE(HnMKladblok,props);return HnE("div",{className:"kb-skin"},props.desk)}
 function HnMVdSwitch(props){return HnE(HnMVandaag,props)}
 function HnMKladblok(props){var groups=props.groups||[],bands=props.colorBands||[];
  var qs=z.useState(""),q=qs[0],setQ=qs[1],rs=z.useState(""),ras=rs[0],setRas=rs[1],os=z.useState(""),openId=os[0],setOpen=os[1];

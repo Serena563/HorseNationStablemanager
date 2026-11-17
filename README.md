@@ -1,6 +1,13 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-17a: Kladblok op de computer — rustige stijl mét alle functies
+
+- Op de computer (en half scherm) is het Kladblok weer het volledige Kladblok, in de rustige stijl: groepen als kopje met het aantal erachter, paarden in één afgeronde lijst, minder knoppen in beeld.
+- Terug: de achtergrondkleur per paard (je SDG-kleuren), slepen met ⋮⋮, ↓ A–Z, ⋯ bij groepen en subgroepen, + paard toevoegen, ↩ paard uit database toevoegen en + subgroep toevoegen, gewoon in de lijst. "Groepen beheren" is niet meer nodig.
+- Per paard: ♀/♂ en het status-icoon in de naambalk, ⋯ voor snelle acties (status, dekking, verplaatsen, SALE, veiling, Handelaar bod) en ▸ om alles te bewerken.
+- Knoppen die je niet vaak nodig hebt (groep omhoog/omlaag, type, plek, verwijderen) verschijnen als je met de muis over het groepskopje gaat.
+
 ## Versie 2026-11-16l: Paard uit je database weer toevoegen
 
 - Bij **＋ Paard toevoegen** in het Kladblok kies je nu eerst: een nieuw, leeg paard, of een paard uit je database (bijv. via het Plakvlak toegevoegd, of eerder uit je Kladblok gehaald). Zoek op naam, kies het paard en daarna de groep; alle gegevens gaan mee.
