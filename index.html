@@ -2508,7 +2508,7 @@ function hnParseMarkt(text){var L=text.replace(/\r/g,"").split("\n").map(functio
   var a=L[i+1]||"",b=L[i+2]||"",S=hnNumP(sm[1]),D=hnNumP(sm[2]),G=hnNumP(sm[3]);
   return{full:p[0].trim(),ras:p[1].trim(),kleur:(p[2]||"").trim(),S:S,D:D,G:G,sdg:S+D+G,coi:hnNumP((p[4]||"0").replace("%",""))||0,lv:{dres:lv(a,"D"),spr:lv(a,"S"),xc:lv(a,"XC"),rei:lv(b,"R"),tra:lv(b,"T"),wp:lv(b,"P")},q:(L[i+3]||"").split("\t").map(function(x){return x.trim()})}};
  var list=[],hist=[],end=hi>0?hi:L.length;
- for(var j=st;j<end;j++){var r=row(j);if(!r)continue;var q=r.q;r.gender=q[0]==="♂"?"H":q[0]==="♀"?"M":"";r.bod=q[1]&&q[1]!=="–"?q[1]:"";r.direct=q[2]&&q[2]!=="–"?q[2]:"";r.bids=+q[3]||0;r.seller=q[4]||"";r.ends=q[5]||"";list.push(r);j+=3}
+ for(var j=st;j<end;j++){var r=row(j);if(!r)continue;var q=r.q,gs=function(x){return x==="♂"?"H":x==="♀"?"M":""};if(gs(r.kleur)){r.gender=gs(r.kleur);r.kleur=q[0]||""}else r.gender=gs(q[0]);r.bod=q[1]&&q[1]!=="–"?q[1]:"";r.direct=q[2]&&q[2]!=="–"?q[2]:"";r.bids=+q[3]||0;r.seller=q[4]||"";r.ends=q[5]||"";list.push(r);j+=3}
  if(hi>0)for(var k=hi+1;k<L.length;k++){var h=row(k);if(!h)continue;var x=h.q;h.seller=x[0]||"";h.buyer=x[1]&&x[1]!=="–"?x[1]:"";h.price=x[2]&&x[2]!=="–"?hnMoneyN(x[2]):null;h.when=x[4]||"";h.state=x[5]||"";hist.push(h);k+=3}
  try{hnMkSplitAll(list.concat(hist),typeof HN_ACT!=="undefined"?hnAllHorses(HN_ACT.groups||[],HN_ACT.ext||[]):[])}catch(e){list.concat(hist).forEach(function(r){r.name=r.full;r.stal=""})}
  return list.length||hist.length?{type:"markt",list:list,hist:hist}:null}
@@ -2518,7 +2518,7 @@ function hnMkSplitAll(rows,all){var names=rows.map(function(r){return r.full}),u
  var okSuf=function(n,i){var s=n.slice(i);return i>=2&&n[i-1]!==" "&&(up(s[0])||/^v(an)?\s/.test(s))};
  var pre=function(a,b){var k=0;while(k<a.length&&k<b.length&&a[k]===b[k])k++;for(var i=k;i>=2;i--)if(okPre(a,i)&&okPre(b,i))return i;return 0};
  var suf=function(a,b){var k=0;while(k<a.length&&k<b.length&&a[a.length-1-k]===b[b.length-1-k])k++;for(var j=k;j>=2;j--){var ia=a.length-j,ib=b.length-j;if(okSuf(a,ia)&&okSuf(b,ib))return j}return 0};
- var one=function(n){var full=n;try{var V=hnStalVariants(n,all||[],[]);if(V.length>1)return{name:V[V.length-1].name,stal:V[V.length-1].stal}}catch(e){}
+ var one=function(n){var full=n;var mv=n.match(/^(.+?[a-zà-ÿ])((?:van |v stal |vd['’]\s?|v\.d\.\s?)\S.*)$/);if(mv&&mv[1].length>=2)return{name:mv[1],stal:mv[2]};try{var V=hnStalVariants(n,all||[],[]);if(V.length>1)return{name:V[V.length-1].name,stal:V[V.length-1].stal}}catch(e){}
   var m0=n.match(/^(.+?)-\s+(\S.*)$/);if(m0)return{name:m0[1].trim(),stal:m0[2]};var m1=n.match(/^(.+?[a-zà-ÿ'’])([A-Z][A-Za-z]{0,4})$/);if(m1&&(m1[2].match(/[A-Z]/g)||[]).length>=2)return{name:m1[1],stal:m1[2]};
   var bp=0,bs=0;names.forEach(function(o){if(o===n)return;var p=pre(n,o),s=suf(n,o);if(p>bp)bp=p;if(s>bs)bs=s});
   if(bp>=2&&bp<n.length-1)return{name:n.slice(bp).trim(),stal:n.slice(0,bp).trim()};
@@ -4181,7 +4181,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-18b";
+var HN_VERSION="2026-11-18d";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};

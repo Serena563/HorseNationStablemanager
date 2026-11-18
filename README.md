@@ -1,6 +1,14 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-18d: stalnamen in de Markt
+
+- Namen met een stalnaam die met "van", "vd'" of "v stal" begint worden goed gesplitst: "Mazevan Freli" wordt **Maze (van Freli)**, "Lucifervd'Klaverweide" wordt **Lucifer (vd'Klaverweide)**.
+
+## Versie 2026-11-18c: Markt leest de telefoon-pagina goed
+
+- De Paardenmarkt uit de Horse Nation-app (telefoon) heeft het geslacht in een eigen kolom. Dat las de app verkeerd, waardoor hengsten als merrie werden gezien (bijv. Veulen van Dota). Nu klopt het geslacht en de kleur, en worden hengsten met je dekhengsten vergeleken.
+
 ## Versie 2026-11-18b: wie weg kan, telt niet meer mee
 
 - **Teams:** een paard dat volgens je stalplan weg kan, komt niet meer in een PowerHouse-team. Paarden op de Preferent-route (en hun nakomelingen) mogen wél in een team, als er geen beter paard voor is.
