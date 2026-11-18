@@ -1,6 +1,16 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-18f: Markt rekent met je vervangers
+
+- De Markt vergelijkt een hengst of merrie nu met je dekhengsten en fokmerries zoals ze **straks** zijn: vervangers (zoals Harry, Solvaeth, Warvane, Urzan) tellen mee, paarden die vervangen worden of weg kunnen tellen niet meer mee. Zo krijg je geen ⭐ meer voor een paard dat in je Stalplan meteen onder de streep valt.
+- Bij de vergelijking staat "vervanger" als het paard waarmee vergeleken wordt een vervanger is.
+- Stalnamen die je al kent (zoals Nova) worden in de Markt goed van de naam gesplitst: "MörkaNova" wordt **Mörka (Nova)**.
+
+## Versie 2026-11-18e: klein ＋ per groep op de telefoon
+
+- Klap je in het Kladblok op de telefoon een groep open, dan staat rechts naast de sorteerknop een klein ＋. Daarmee voeg je een nieuw paard (of een paard uit je database) direct aan díe groep toe, zonder eerst een groep te kiezen. Het grote ronde ＋ rechtsonder blijft ook werken.
+
 ## Versie 2026-11-18d: stalnamen in de Markt
 
 - Namen met een stalnaam die met "van", "vd'" of "v stal" begint worden goed gesplitst: "Mazevan Freli" wordt **Maze (van Freli)**, "Lucifervd'Klaverweide" wordt **Lucifer (vd'Klaverweide)**.
