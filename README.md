@@ -1,6 +1,10 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-18g: geen fokbonus-regel in de Dekplanner
+
+- In de Dekplanner staat "Fokbonus: …" bij een hengst alleen nog in jouw eigen (ontgrendelde) variant. Voor andere spelers is die regel weg.
+
 ## Versie 2026-11-18f: Markt rekent met je vervangers
 
 - De Markt vergelijkt een hengst of merrie nu met je dekhengsten en fokmerries zoals ze **straks** zijn: vervangers (zoals Harry, Solvaeth, Warvane, Urzan) tellen mee, paarden die vervangen worden of weg kunnen tellen niet meer mee. Zo krijg je geen ⭐ meer voor een paard dat in je Stalplan meteen onder de streep valt.
