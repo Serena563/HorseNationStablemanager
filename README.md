@@ -1,6 +1,18 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-18b: wie weg kan, telt niet meer mee
+
+- **Teams:** een paard dat volgens je stalplan weg kan, komt niet meer in een PowerHouse-team. Paarden op de Preferent-route (en hun nakomelingen) mogen wél in een team, als er geen beter paard voor is.
+- **Weiland-indeling / Verhuizen:** een Preferent-paard dat in je PowerHouse staat, blijft in de stal en hoeft niet naar de Preferent-wei.
+- **Vandaag → Dekken:** paarden die weg kunnen worden niet meer voorgesteld om te dekken of als hengst voor een merrie, zodat je niet op hun veulens hoeft te wachten voor ze weg kunnen.
+- **Vandaag op de telefoon:** bij Drachtig staat nu bijv. "10 · + 1 gedekt · 11 bevallingen binnen 7 dagen".
+
+## Versie 2026-11-18a: kloppende redenen bij "Kan weg"
+
+- Bij een hengst of merrie die weg kan omdat alle plekken al door betere vervangers worden ingenomen, staat nu precies dát (met hun namen), in plaats van "niet beter dan de zwakste" met de verkeerde naam erbij.
+- Stalplan → "Beter paard voor een team" stelt geen paard meer voor dat volgens je stalplan weg kan.
+
 ## Versie 2026-11-17i: sorteren op de telefoon (en op ras)
 
 - Op de telefoon staat de sorteerknop weer bij elke opengeklapte groep in het Kladblok: ↓ A–Z, ↓ Ras, ⇅ Eigen of ↓ SDG. De keuze is dezelfde als op de computer.
