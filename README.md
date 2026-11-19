@@ -1,6 +1,10 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19s: verkeerde stalnaam bij dekhengsten
+- Merrie dekken plakken: heeft een hengst in je database dezelfde naam, dezelfde eigenaar en precies dezelfde S/D/G maar een andere stalnaam, dan ziet de app hem als hetzelfde paard en verbetert de stalnaam (bijvoorbeeld Boas: BRS in plaats van Habsburger). Er komt dus geen tweede bij.
+- Stamboom controleren: hengsten met dezelfde naam, hetzelfde ras, dezelfde eigenaar en precies dezelfde S/D/G (met decimalen) worden als dubbel gezien, ook als de stalnaam verschilt. Bij samenvoegen blijft de versie van de dekhengstenlijst over.
+
 ## Versie 2026-11-19r: melding Dekhengsten bijwerken alleen als het nodig is
 - De melding verschijnt alleen nog als je dat ras nooit of 3 weken of langer niet via Merrie dekken hebt bijgewerkt. Te weinig vrije hengsten na een volledige kopie is geen kopieerprobleem meer; dat staat bij "Lijnen lopen vast".
 
