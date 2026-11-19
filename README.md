@@ -1,6 +1,13 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19e: Lijnen per moederlijn
+- Fokken → Lijnen: elke lijn is nu opgedeeld in moederlijnen (stammen), elk met een eigen kleur en een klein stamboompje. Stammen zijn in- en uitklapbaar en staan standaard dicht.
+- Grijze namen zijn voorouders die niet (meer) in je stal staan.
+- Een gekleurd stipje met "vader …" laat zien dat de vader uit een andere stam komt; "via vader" als een paard alleen via zijn vader bij een stam hoort.
+- "Verder terug verwant" toont paarden die alleen via een verdere voorouder in de lijn zitten, met wie ze delen.
+- "Vrije hengsten per fokmerrie" heeft het kleurstipje van de stam van de merrie.
+
 ## Versie 2026-11-19d: dubbele namen in stambomen
 - Paarden met dezelfde naam worden nu uit elkaar gehouden via het paardnummer. Overal (inteelt, verwantschap, Lijnen, stamboom compleet, Gegevens nakijken) volgt de app de ouder die echt aan het paard gekoppeld is, niet meer de eerste met die naam.
 - Is er geen nummer bekend, dan kiest de app het paard met die naam dat een stamboom heeft, niet zomaar de eerste.

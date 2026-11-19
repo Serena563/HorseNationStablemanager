@@ -2330,6 +2330,19 @@ body.nav-hide .hn-navwrap{transform:translateY(-110%)}
 .pg-leaf{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border,#d3cbb2);border-radius:999px;padding:2px 4px 2px 10px;font-size:13px}
 .pg-free{border:0;background:rgba(113,84,158,.12);color:#5b3f86;border-radius:999px;padding:3px 9px;font:inherit;font-size:12px;cursor:pointer}
 .imp-card .wl-row{flex-wrap:wrap}
+.lf-lh{margin:4px 0 6px}
+.lf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px;align-items:start}
+.lf-fam{border:1px solid rgba(0,0,0,.1);border-radius:10px;background:rgba(255,255,255,.55);padding:6px 10px}
+.lf-fam>summary{cursor:pointer;list-style:none}
+.lf-fam>summary::-webkit-details-marker{display:none}
+.lf-h{display:flex;align-items:center;gap:7px;font-weight:600;font-size:15px}
+.lf-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.lf-tree{padding:4px 0 2px}
+.lf-row{display:flex;align-items:center;flex-wrap:wrap;gap:4px;font-size:14px;line-height:1.8}
+.lf-t{font-family:ui-monospace,Menlo,monospace;color:#a39e93;white-space:pre;font-size:13px}
+.lf-ghost{color:#8d877b}
+.lf-x{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#6f6a60;margin-left:4px}
+.lf-los{margin-top:12px}
 </style>
 </head>
 <body>
@@ -2721,14 +2734,41 @@ function hnRasStateAll(groups,ext){if(HN_RSC.g===groups&&HN_RSC.x===ext&&HN_RSC.
   var kn=L.map(function(h){return hnKnown(h,map,3)}),avgK=kn.reduce(function(a,b){return a+b},0)/(kn.length||1);
   out[k]={ras:R[k].ras,L:L,lines:lines,per:per,pairs:pairs,stuck:stuck,warn:mares.length>0&&(stuck.length>0),avgK:avgK,nStal:stal.length,nDb:db.length}});
  HN_RSC={g:groups,x:ext,v:out};return out}
-function HnLijnenTab(props){var S=hnRasStateAll(props.groups||[],props.externalHorses||[]),keys=Object.keys(S).sort(function(a,b){return hnRasCmp(S[a].ras,S[b].ras)});
+var HN_FAMC=["#1D9E75","#7F77DD","#D85A30","#D4537E","#BA7517","#378ADD","#639922","#993556","#0F6E56","#854F0B"];
+function hnFamilies(L,map){var key=function(x){return x.id?"id:"+x.id:"n:"+Se(x.name)},M={};L.forEach(function(h){M[h.id]=1});
+ var chain=function(h){var c=[h],x=h;for(var k=0;k<3;k++){var d=hnPar(x,"dam",map);if(!d){if(x.damName&&x.damName.trim())c.push({name:x.damName.trim(),ghost:1});break}c.push(d);x=d}return c};
+ var C={},cnt={};L.forEach(function(h){C[h.id]=chain(h);var seen={};C[h.id].forEach(function(x){var k=key(x);if(!seen[k]){seen[k]=1;cnt[k]=(cnt[k]||0)+1}})});
+ var node={},par={},kids={},via={};var add=function(x){var k=key(x);if(!node[k])node[k]={k:k,h:x,ghost:!!x.ghost||!M[x.id]};return k};
+ var lone=[];L.forEach(function(h){var c=C[h.id],ri=-1;for(var i=c.length-1;i>0;i--){if(cnt[key(c[i])]>1){ri=i;break}}if(ri<0&&cnt[key(h)]>1)ri=0;if(ri<0){lone.push(h);return}
+  for(var j=0;j<=ri;j++){var k=add(c[j]);if(j<ri){var pk=key(c[j+1]);par[k]=pk}}});
+ Object.keys(par).forEach(function(k){var pk=par[k];(kids[pk]=kids[pk]||[]);if(kids[pk].indexOf(k)<0)kids[pk].push(k)});
+ var rest=[];lone.forEach(function(h){var p=hnPar(h,"sire",map);if(p&&node[key(p)]){var k=add(h);par[k]=key(p);via[k]=1;(kids[key(p)]=kids[key(p)]||[]).push(k)}else rest.push(h)});
+ var roots=Object.keys(node).filter(function(k){return!par[k]});
+ roots=roots.map(function(r){while(node[r].ghost&&(kids[r]||[]).length===1&&!via[kids[r][0]])r=kids[r][0];return r});
+ var F=roots.map(function(r){var ids=[],walk=function(k){if(!node[k].ghost&&node[k].h.id)ids.push(node[k].h.id);(kids[k]||[]).forEach(walk)};walk(r);return{root:r,ids:ids}}).filter(function(f){return f.ids.length});
+ F.sort(function(a,b){return b.ids.length-a.ids.length||String(node[a.root].h.name).localeCompare(node[b.root].h.name)});
+ var famOf={};F.forEach(function(f,i){f.color=HN_FAMC[i%HN_FAMC.length];var w=function(k){famOf[k]=i;(kids[k]||[]).forEach(w)};w(f.root)});
+ var anc=function(h){var o={},go=function(x,d){if(!x||d>4)return;["sire","dam"].forEach(function(r){var n=r==="sire"?x.sireName:x.damName;if(!n||!n.trim())return;var q=hnPar(x,r,map),k=q&&q.id?"id:"+q.id:"n:"+Se(n);if(!o[k]||o[k].d>d)o[k]={n:q?q.name:n.trim(),d:d};go(q,d+1)})};o["id:"+h.id]={n:h.name,d:0};go(h,1);return o};
+ var far=rest.map(function(h){var a=anc(h),best=null;L.forEach(function(o){if(o.id===h.id)return;var b=anc(o);Object.keys(a).forEach(function(k){if(b[k]){var sc=a[k].d+b[k].d;if(!best||sc<best.sc)best={sc:sc,n:a[k].n,o:o}}})});return{h:h,why:best?(best.o.id&&best.n===best.o.name?"familie van "+best.o.name:"deelt "+best.n+" met "+best.o.name):"verwant"}});
+ return{F:F,node:node,kids:kids,via:via,famOf:famOf,far:far,key:key}}
+function HnFamTree(props){var R=props.R,f=props.f,sx=function(h){return h.gender==="H"?" ♂ ":" ♀ "},out=[];
+ var row=function(k,pre,last,top){var nd=R.node[k],h=nd.h,ks=(R.kids[k]||[]).slice().sort(function(a,b){return String(R.node[a].h.name).localeCompare(R.node[b].h.name)});
+  var x=null;if(!nd.ghost&&h.sireName){var p=hnPar(h,"sire",props.map),pk=p?R.key(p):"";if(pk&&R.famOf[pk]!==void 0&&R.famOf[pk]!==R.famOf[k]&&!R.via[k])x=HnE("span",{className:"lf-x"},HnE("span",{className:"lf-dot",style:{background:R.F[R.famOf[pk]].color}}),"vader "+p.name)}
+  out.push(HnE("div",{key:k,className:"lf-row"+(nd.ghost?" lf-ghost":"")},top?null:HnE("span",{className:"lf-t"},pre+(last?"└─ ":"├─ ")),nd.ghost?HnE("span",null,h.name):HnE("button",{type:"button",className:"wl-nm",onClick:function(){hnKbGo(h.id)}},h.name),nd.ghost?HnE("span",{className:"pc-det"}," niet in stal"):HnE("span",{className:"pc-det"},sx(h)+hnF1(km(h))),R.via[k]?HnE("span",{className:"lf-x"},"via vader"):null,x));
+  ks.forEach(function(c,i){row(c,top?"":pre+(last?"   ":"│  "),i===ks.length-1,!1)})};
+ row(f.root,"",!0,!0);return HnE("div",{className:"lf-tree"},out)}
+function HnLijnenTab(props){var S=hnRasStateAll(props.groups||[],props.externalHorses||[]),MAP=z.useMemo(function(){return hnHorseMap(hnAllHorses(props.groups||[],props.externalHorses||[]))},[props.groups,props.externalHorses]),keys=Object.keys(S).sort(function(a,b){return hnRasCmp(S[a].ras,S[b].ras)});
  var sx=function(h){return h.gender==="H"?" ♂":" ♀"},nm=function(h){return HnE("button",{type:"button",className:"wl-nm",onClick:function(){hnKbGo(h.id)}},h.name)};
  return HnE("div",{className:"pred-tab ln-tab"},
-  HnE(HnInfo,null,"Per ras zie je welke van je paarden familie van elkaar zijn (binnen 4 generaties). Paarden die familie zijn staan in dezelfde lijn. Om op 0% inteelt te blijven dek je een merrie met een hengst uit een andere lijn of van buiten, en houd je liefst meerdere lijnen naast elkaar aan: de veulens van lijn 1 × lijn 2 zijn later familie van beide. Per fokmerrie zie je hoeveel hengsten nog vrij zijn: je eigen dekhengsten en de dekhengsten in je database. Hoe completer je stambomen, hoe beter dit klopt."),
+  HnE(HnInfo,null,"Per ras zie je welke van je paarden familie van elkaar zijn (binnen 4 generaties). Paarden die familie zijn staan in dezelfde lijn. Om op 0% inteelt te blijven dek je een merrie met een hengst uit een andere lijn of van buiten, en houd je liefst meerdere lijnen naast elkaar aan: de veulens van lijn 1 × lijn 2 zijn later familie van beide. Binnen een lijn staan de paarden per moederlijn (stam), elk met een eigen kleur. Klik een stam open om het stamboompje te zien; grijze namen staan niet meer in je stal. Een gekleurd stipje met \"vader …\" betekent dat de vader uit een andere stam komt: zo zijn de stammen met elkaar verbonden. Per fokmerrie zie je hoeveel hengsten nog vrij zijn: je eigen dekhengsten en de dekhengsten in je database. Hoe completer je stambomen, hoe beter dit klopt."),
   keys.length?keys.map(function(k){var X=S[k];return HnE(HnFold,{key:k,id:"ln-"+k,cls:"pred-card wl-card",def:X.warn,head:HnE("span",{className:"vd-h"},(X.warn?"⚠️ ":"")+X.ras),sub:HnE("span",{className:"pc-det"},X.lines.length+" lijn"+(X.lines.length===1?"":"en")+" · "+X.pairs+" schone combinaties binnen je stal · stambomen gemiddeld "+Math.round(X.avgK)+" van 14 voorouders bekend")},
    X.warn?HnE("div",{className:"ln-warn"},HnE("b",null,X.ras+" loopt vast: "),X.stuck.map(function(x){return x.m.name}).join(", ")+(X.stuck.length===1?" heeft":" hebben")+" nog maar 2 of minder hengsten zonder inteelt (eigen + database). Nieuw bloed nodig? Kijk bij Creditveulen, of voeg meer dekhengsten van dit ras toe aan je database.",HnE("div",null,HnE("button",{type:"button",className:"fok-btn",onClick:function(){window.dispatchEvent(new CustomEvent("hn-nav",{detail:"credit"}))}},"Naar Creditveulen →"))):null,
-   HnE("div",{className:"ln-lines"},X.lines.map(function(L,i){return HnE("div",{key:i,className:"ln-line"},HnE("b",null,L.length===1?"Los":"Lijn "+(i+1)),HnE("span",{className:"pc-det"}," ("+L.length+")"),HnE("div",{className:"wl-chips"},L.map(function(h){return HnE("span",{key:h.id,className:"wl-chip"},HnE("button",{type:"button",className:"wl-nm",onClick:function(){hnKbGo(h.id)}},h.name),HnE("span",{className:"pc-det"},sx(h)+" "+hnF1(km(h))))})))})),
-   X.per.length?HnE("div",{className:"ln-per"},HnE("b",null,"Vrije hengsten per fokmerrie"),X.per.map(function(x){var t=x.o+x.d;return HnE("div",{key:x.m.id,className:"wl-row"},HnE("div",{className:"wl-main"},nm(x.m),HnE("span",{className:"pc-det"}," "+hnF1(km(x.m)))),HnE("span",{className:"ln-cnt "+(t<=2?"sp-d":t<=5?"":"sp-k")},x.o+" van "+x.oT+" eigen · "+x.d+" van "+x.dT+" database"))})):null)}):HnE("p",{className:"ras-hint"},"Nog geen rassen met minstens 2 paarden in je stal."))}
+   (function(){var FC={},los=[],ln=0;var body=X.lines.map(function(L,i){if(L.length===1){los.push(L[0]);return null}ln++;var R=hnFamilies(L,MAP);R.F.forEach(function(f){f.ids.forEach(function(id){FC[id]=f.color})});
+   return HnE("div",{key:i,className:"ln-line"},HnE("div",{className:"lf-lh"},HnE("b",null,"Lijn "+ln),HnE("span",{className:"pc-det"}," · "+L.length+" paarden"+(R.F.length?" · "+R.F.length+" moederlijn"+(R.F.length===1?"":"en"):"")+(R.F.length>1?", verbonden via vaders of verder terug":""))),
+    HnE("div",{className:"lf-grid"},R.F.map(function(f){var rt=R.node[f.root].h;return HnE(HnFold,{key:f.root,id:"lnf-"+k+"-"+f.root,cls:"lf-fam",def:!1,head:HnE("span",{className:"lf-h"},HnE("span",{className:"lf-dot",style:{background:f.color}}),"Stam "+rt.name,HnE("span",{className:"pc-det"}," · "+f.ids.length))},HnE(HnFamTree,{R:R,f:f,map:MAP}))}),
+     R.far.length?HnE(HnFold,{id:"lnf-"+k+"-far"+i,cls:"lf-fam",def:!1,head:HnE("span",{className:"lf-h"},HnE("span",{className:"lf-dot",style:{background:"#888780"}}),"Verder terug verwant",HnE("span",{className:"pc-det"}," · "+R.far.length))},HnE("div",{className:"lf-tree"},R.far.map(function(x){return HnE("div",{key:x.h.id,className:"lf-row"},HnE("button",{type:"button",className:"wl-nm",onClick:function(){hnKbGo(x.h.id)}},x.h.name),HnE("span",{className:"pc-det"},sx(x.h)+" "+hnF1(km(x.h))),HnE("span",{className:"lf-x"},x.why))}))):null))});
+   X._fc=FC;return HnE("div",{className:"ln-lines"},body,los.length?HnE("div",{className:"ln-line lf-los"},HnE("b",null,"Los"),HnE("span",{className:"pc-det"}," geen familie in je stal"),HnE("div",{className:"wl-chips"},los.map(function(h){return HnE("span",{key:h.id,className:"wl-chip"},HnE("button",{type:"button",className:"wl-nm",onClick:function(){hnKbGo(h.id)}},h.name),HnE("span",{className:"pc-det"},sx(h)+" "+hnF1(km(h))))}))):null)})(),
+   X.per.length?HnE("div",{className:"ln-per"},HnE("b",null,"Vrije hengsten per fokmerrie"),X.per.map(function(x){var t=x.o+x.d,fc=X._fc&&X._fc[x.m.id];return HnE("div",{key:x.m.id,className:"wl-row"},HnE("div",{className:"wl-main"},fc?HnE("span",{className:"lf-dot",style:{background:fc,marginRight:6}}):null,nm(x.m),HnE("span",{className:"pc-det"}," "+hnF1(km(x.m)))),HnE("span",{className:"ln-cnt "+(t<=2?"sp-d":t<=5?"":"sp-k")},x.o+" van "+x.oT+" eigen · "+x.d+" van "+x.dT+" database"))})):null)}):HnE("p",{className:"ras-hint"},"Nog geen rassen met minstens 2 paarden in je stal."))}
 function hnGapLeaves(h,map,d){var out=[],seen={};if(!h)return out;if(h.pedigree==="stamboomloos")return out;if(!h.sireName&&!h.damName){out.push({name:h.name,obj:h});return out}
  var go=function(x,dd){["sire","dam"].forEach(function(r){var n=r==="sire"?x.sireName:x.damName;if(!n||!n.trim()||dd<=1)return;var c=hnPar(x,r,map);if(!c){if(!seen[Se(n)]){seen[Se(n)]=1;out.push({name:n,obj:null})}return}if(c.pedigree==="stamboomloos")return;if(!c.sireName&&!c.damName){if(!seen[c.id]){seen[c.id]=1;out.push({name:c.name,obj:c})}return}go(c,dd-1)})};go(h,d);return out}
 function hnMarkPedFree(o){if(!o)return;if(o.inStal&&typeof hnUpdate==="function"){hnUpdate(o.id,function(x){return Object.assign({},x,{pedigree:"stamboomloos"})});return}if(HN_ACT.setExt)HN_ACT.setExt(function(x){return x.map(function(e){return e.id===o.id?Object.assign({},e,{pedigree:"stamboomloos"}):e})})}
@@ -4254,7 +4294,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-19d";
+var HN_VERSION="2026-11-19e";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};
