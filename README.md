@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19h: dekhengsten bijwerken met minder plakwerk
+- Plakken: nieuwe knop "📋 Plak uit klembord" boven het plakvak.
+- Vandaag: nieuwe melding "Dekhengsten bijwerken" per ras met fokmerries, als je Merrie dekken nog nooit of 3 weken of langer niet hebt geplakt. Met de knop "Gekopieerd? Plak uit klembord →" ga je direct naar Plakken met de tekst er al in.
+- Per ras staat vanaf welke SDG de dekhengsten ertoe doen (je zwakste fokmerrie). Alleen als er voor een merrie te weinig vrije hengsten vanaf die SDG zijn, vraagt de app om ook iets lager (2 punten) te kopiëren.
+- Plak je alleen het bovenste deel van de lijst (hoge SDG), dan worden hengsten onder die SDG niet meer als "verdwenen" gemarkeerd.
+
 ## Versie 2026-11-19g: dekgeld vergelijken met de markt
 - Fokken → Dracht → Mijn dekhengsten: bij elke hengst die ter dekking mag staat nu wat andere dekhengsten van hetzelfde ras met ongeveer dezelfde SDG vragen (prijzen uit Merrie dekken in je database).
 - Knop "Marktprijs gebruiken" zet die prijs als jouw dekgeld; "Terug naar app-prijs" zet hem weer terug naar de eigen berekening van de app.
