@@ -1,6 +1,10 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19l: melding dekhengsten bijwerken klopt beter
+- Bij het plakken van Merrie dekken krijgt elke hengst uit de lijst een datum "laatst gezien". De melding "Dekhengsten bijwerken" kijkt daarnaar, dus de datum gaat ook mee in je back-up.
+- Nieuwe knop "Al gedaan ✓" in de melding: zet het ras op vandaag bijgewerkt.
+
 ## Versie 2026-11-19k: dekdienst op tijd uitzetten bij vervanging
 - Een dekhengst die vervangen wordt, krijgt een datum waarop je de dekdienst uitzet: de dracht (7 dagen) min het aantal dagen dat je na de vervanging nog wilt wachten op zijn laatste veulen.
 - Nieuwe instelling "Wachten op laatste veulen" (standaard 4 dagen): dekdienst dan 3 dagen voor de vervanger klaar is uit.
