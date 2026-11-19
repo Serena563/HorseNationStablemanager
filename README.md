@@ -1,6 +1,9 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19r: melding Dekhengsten bijwerken alleen als het nodig is
+- De melding verschijnt alleen nog als je dat ras nooit of 3 weken of langer niet via Merrie dekken hebt bijgewerkt. Te weinig vrije hengsten na een volledige kopie is geen kopieerprobleem meer; dat staat bij "Lijnen lopen vast".
+
 ## Versie 2026-11-19q: tip voor Merrie dekken kopiëren
 - Plakken (uitleg bij Merrie dekken), het plakvoorbeeld en de melding "Dekhengsten bijwerken" zeggen nu: scroll eerst helemaal naar beneden in de lijst met dekhengsten, en doe pas dan Ctrl A + Ctrl C.
 - Plak je Merrie dekken en zitten er minder hengsten in je tekst dan het spel noemt ("111 gevonden"), dan waarschuwt de app: "50 van de 111 hengsten staan in je tekst".
