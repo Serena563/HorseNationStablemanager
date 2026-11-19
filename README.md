@@ -1,6 +1,33 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19d: dubbele namen in stambomen
+- Paarden met dezelfde naam worden nu uit elkaar gehouden via het paardnummer. Overal (inteelt, verwantschap, Lijnen, stamboom compleet, Gegevens nakijken) volgt de app de ouder die echt aan het paard gekoppeld is, niet meer de eerste met die naam.
+- Is er geen nummer bekend, dan kiest de app het paard met die naam dat een stamboom heeft, niet zomaar de eerste.
+- Stamboom plakken: drievoudige controle. Een bestaand paard wordt alleen herkend als naam, ouders en paardnummer elkaar niet tegenspreken. Anders komt er een nieuw paard bij in plaats van een verkeerde samenvoeging.
+- Fokken → Lijnen: nieuwe melding "Ouders met een dubbele naam" voor paarden waarbij niet zeker is welke ouder bedoeld wordt.
+- Gegevens nakijken: de onterechte melding "stamboom van moeder … is leeg" bij dubbele namen (zoals Maze/Maeve) is weg.
+
+## Versie 2026-11-19c: stamboomloze voorouders herkennen
+
+- **Automatisch bij het plakken van een stamboom:** heeft een paard in de geplakte stamboom (niet in de bovenste rij) geen ouders, dan zet de app het op **stamboomloos**; mist er één ouder, dan op **bijna stamboomloos**. Je ziet dit in het overzicht vóór je op Opslaan drukt. Paarden in de bovenste rij van de stamboom worden niet aangepast, omdat hun ouders daar niet getoond worden.
+- **Stambomen die je nog mist:** per paard staat bij "Leeg bij" welke voorouder geen ouders heeft, met een knopje **is stamboomloos**. Tik erop als je zeker weet dat dat paard in het spel geen ouders heeft; die tak telt dan als compleet.
+
+## Versie 2026-11-19b: schoon blijven fokken
+
+- **Hoe zeker is 0%?** In de Dekplanner staat bij elke combinatie hoeveel van de 30 voorouders van het veulen (4 generaties) bekend zijn. Onder de 22 krijg je ⚠: dan kan de inteelt hoger zijn dan de app ziet. Stamboomloze paarden tellen als compleet.
+- **Stambomen die je nog mist** (Fokken → Stamboom): je eigen paarden en dekhengsten van jouw rassen met gaten in hun stamboom, de belangrijkste bovenaan.
+- **Nieuw: Fokken → Lijnen.** Per ras zie je welke paarden familie van elkaar zijn (lijnen), hoeveel schone combinaties je binnen je stal hebt, en per fokmerrie hoeveel eigen hengsten en database-hengsten nog zonder inteelt zijn.
+- **Seintje als een ras vastloopt:** heeft een fokmerrie nog maar 2 of minder hengsten zonder inteelt, dan staat dat op Vandaag en bij Lijnen, met een knop naar Creditveulen.
+- **Markt:** staat een paard uit de markt met stamboom in je database, dan zie je "Past zonder inteelt bij X van je Y fokmerries/dekhengsten".
+
+## Versie 2026-11-19a: Dekplanner kijkt vooruit
+
+- **Grens per hengst:** per ras mag een hengst maximaal de helft van je fokmerries (minstens 1) als vader hebben in je stal, drachtige merries meegeteld. Bijv. 10 Friese fokmerries → 5, 6 Tinkers → 3, 2 Mérens → 1. Zit een hengst op de grens, dan krijgt hij 🚫 en staat hij onderaan.
+- **Schoon voor later:** bij elke hengst staat met hoeveel van je eigen paarden van dat ras en hoeveel dekhengsten in je database het veulen later zónder inteelt kan. Nieuwe sorteerknop "Schoonst voor later".
+- **Lijnen per ras:** bovenaan zie je welke vaders al vaker in je stal zitten (2× of meer); de rest wordt samengevat.
+- Nieuwe standaard voor "Max. veulens buitenshuis per hengst": 10 (voor nieuwe gebruikers; je eigen instelling blijft staan tot je hem aanpast).
+
 ## Versie 2026-11-18g: geen fokbonus-regel in de Dekplanner
 
 - In de Dekplanner staat "Fokbonus: …" bij een hengst alleen nog in jouw eigen (ontgrendelde) variant. Voor andere spelers is die regel weg.
