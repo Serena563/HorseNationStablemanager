@@ -1,6 +1,15 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19k: dekdienst op tijd uitzetten bij vervanging
+- Een dekhengst die vervangen wordt, krijgt een datum waarop je de dekdienst uitzet: de dracht (7 dagen) min het aantal dagen dat je na de vervanging nog wilt wachten op zijn laatste veulen.
+- Nieuwe instelling "Wachten op laatste veulen" (standaard 4 dagen): dekdienst dan 3 dagen voor de vervanger klaar is uit.
+- Zichtbaar in Mijn dekhengsten ("📅 Dekdienst uit op …") en in het Stalplan; op die dag komt de hengst in Vandaag bij "Dekdienst uitzetten".
+
+## Versie 2026-11-19j: dekdienst uit het spel overnemen
+- Mijn stal plakken: staat bij een hengst in de kolom Status "Dekhengst", dan zet de app het vinkje "Staat in Horse Nation ter dekking" aan; bij "–" gaat het uit. (Of hij openbaar, privé of alleen voor eigen gebruik staat, is uit die lijst niet te zien.)
+- Paardpagina van je eigen hengst plakken: het dekgeld uit "Dekdienst instellingen" wordt overgenomen als jouw dekgeld.
+
 ## Versie 2026-11-19i: dekhengsten zonder stamboom
 - Vandaag: nieuwe melding "Dekhengsten zonder stamboom" per ras: dekhengsten in je database vanaf de SDG die voor jou telt, waarvan geen ouders bekend zijn (hoogste SDG eerst).
 - Dekplanner: bij zo'n hengst staat "⚠ Stamboom onbekend: inteelt nog niet zeker" in plaats van het aantal bekende voorouders.
