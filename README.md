@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19f: nieuw dekdienst-advies
+- Hengsten die je houdt: ter dekking met de gewone grens ("Max. veulens buitenshuis"). Ze staan toch al in je stal, dus dekgeld en hengstenpunten kosten geen extra plek.
+- Alleen als jouw hengst hoger staat dan alle dekhengsten van dat ras in je database, geldt een lagere grens: nieuwe instelling "Max. buitenshuis voor je beste hengst" (standaard 3).
+- "Alleen binnenshuis" is vervallen.
+- Hengsten die weg kunnen (ook in opleiding): geen nieuwe dekkingen buitenshuis. Verwachte veulens afwachten, daarna weg. Staat hij nog ter dekking, dan zegt de app dat je het uitzet.
+
 ## Versie 2026-11-19e: Lijnen per moederlijn
 - Fokken → Lijnen: elke lijn is nu opgedeeld in moederlijnen (stammen), elk met een eigen kleur en een klein stamboompje. Stammen zijn in- en uitklapbaar en staan standaard dicht.
 - Grijze namen zijn voorouders die niet (meer) in je stal staan.
