@@ -1,6 +1,27 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19q: tip voor Merrie dekken kopiëren
+- Plakken (uitleg bij Merrie dekken), het plakvoorbeeld en de melding "Dekhengsten bijwerken" zeggen nu: scroll eerst helemaal naar beneden in de lijst met dekhengsten, en doe pas dan Ctrl A + Ctrl C.
+- Plak je Merrie dekken en zitten er minder hengsten in je tekst dan het spel noemt ("111 gevonden"), dan waarschuwt de app: "50 van de 111 hengsten staan in je tekst".
+
+## Versie 2026-11-19p: eerder dekken
+- Nieuwe instelling "Eerder dekken" (standaard 4 dagen, voor alle rassen): bevalt de drachtige groep binnen zoveel dagen, dan stelt de app voor de volgende groep alvast te dekken. 0 = uit.
+- Alleen als stal en wei samen plek hebben voor alle veulens van de komende 7 dagen plus de nieuwe groep. Past het niet, dan zegt de app hoeveel plekken je tekort komt.
+- Bij Fokken → Dracht → Nu dekken staat "(eerder)" bij de groep met uitleg en een knop "Negeren". Genegeerd? Dan wacht de groep gewoon, met de knop "Toch eerder dekken" om het terug te zetten.
+
+## Versie 2026-11-19o: Merrie dekken in stukken plakken
+- Plak je maar een deel van de Merrie dekken-lijst (bijvoorbeeld alleen SDG 23 tot 29), dan markeert de app alleen hengsten binnen dat SDG-bereik als "niet meer in de lijst". Hengsten erboven en eronder blijven gewoon staan.
+
+## Versie 2026-11-19n: SDG moet exact kloppen bij dubbele paarden
+- Dubbele paarden: de S, D en G moeten nu precies gelijk zijn. Alleen als één van de twee uit een stamboom komt (daar staan afgeronde getallen, zoals S11 D12 G12), mag het exacte getal daarop afronden (11,2 / 11,5 / 11,8). Elk ander verschil betekent: twee verschillende paarden.
+
+## Versie 2026-11-19m: dubbele paarden beter opruimen
+- Stamboom → Stamboom controleren: dubbele paarden worden nu als groep bekeken. Staat een paard er drie keer in (bijvoorbeeld Lennox, 𝒞ℳ𝒮Lennox en Lennox met paardnummer), dan worden ze samen samengevoegd tot het paard met de meeste gegevens.
+- Een groep geldt alleen als "zeker" als er hooguit één paardnummer in zit, de ouders elkaar niet tegenspreken en de SDG hooguit 1 punt verschilt.
+- "Alle zekere samenvoegen" voegt nu ook groepen van drie of meer samen; gegevens van alle dubbele paarden gaan mee (dekhengst, dekgeld, eigenaar, exacte SDG).
+- Nakomelingen-lijst plakken: namen met een bekende stalnaam eraan vast (zoals GoldYara) worden nu gesplitst in stalnaam en naam, zodat er minder dubbele paarden ontstaan.
+
 ## Versie 2026-11-19l: melding dekhengsten bijwerken klopt beter
 - Bij het plakken van Merrie dekken krijgt elke hengst uit de lijst een datum "laatst gezien". De melding "Dekhengsten bijwerken" kijkt daarnaar, dus de datum gaat ook mee in je back-up.
 - Nieuwe knop "Al gedaan ✓" in de melding: zet het ras op vandaag bijgewerkt.
