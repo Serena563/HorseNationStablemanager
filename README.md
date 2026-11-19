@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19i: dekhengsten zonder stamboom
+- Vandaag: nieuwe melding "Dekhengsten zonder stamboom" per ras: dekhengsten in je database vanaf de SDG die voor jou telt, waarvan geen ouders bekend zijn (hoogste SDG eerst).
+- Dekplanner: bij zo'n hengst staat "⚠ Stamboom onbekend: inteelt nog niet zeker" in plaats van het aantal bekende voorouders.
+- Hengsten die je als stamboomloos hebt gemarkeerd tellen niet mee.
+
 ## Versie 2026-11-19h: dekhengsten bijwerken met minder plakwerk
 - Plakken: nieuwe knop "📋 Plak uit klembord" boven het plakvak.
 - Vandaag: nieuwe melding "Dekhengsten bijwerken" per ras met fokmerries, als je Merrie dekken nog nooit of 3 weken of langer niet hebt geplakt. Met de knop "Gekopieerd? Plak uit klembord →" ga je direct naar Plakken met de tekst er al in.
