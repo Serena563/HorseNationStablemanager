@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-19g: dekgeld vergelijken met de markt
+- Fokken → Dracht → Mijn dekhengsten: bij elke hengst die ter dekking mag staat nu wat andere dekhengsten van hetzelfde ras met ongeveer dezelfde SDG vragen (prijzen uit Merrie dekken in je database).
+- Knop "Marktprijs gebruiken" zet die prijs als jouw dekgeld; "Terug naar app-prijs" zet hem weer terug naar de eigen berekening van de app.
+- Zijn er te weinig vergelijkbare hengsten met dekgeld, dan zegt de app dat en kun je Merrie dekken opnieuw plakken.
+
 ## Versie 2026-11-19f: nieuw dekdienst-advies
 - Hengsten die je houdt: ter dekking met de gewone grens ("Max. veulens buitenshuis"). Ze staan toch al in je stal, dus dekgeld en hengstenpunten kosten geen extra plek.
 - Alleen als jouw hengst hoger staat dan alle dekhengsten van dat ras in je database, geldt een lagere grens: nieuwe instelling "Max. buitenshuis voor je beste hengst" (standaard 3).

@@ -2343,6 +2343,8 @@ body.nav-hide .hn-navwrap{transform:translateY(-110%)}
 .lf-ghost{color:#8d877b}
 .lf-x{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#6f6a60;margin-left:4px}
 .lf-los{margin-top:12px}
+.md-mkt{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:4px}
+.md-mbtn{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.18);background:transparent;cursor:pointer}
 </style>
 </head>
 <body>
@@ -4017,7 +4019,12 @@ function HnMijnDek(props){var all=props.all;var tk=z.useState(0),setTick=tk[1];v
  var rassen=Array.from(new Set(shown.map(function(r){return(r.h.ras||"?").trim()}))).sort(function(a,b){return hnRasCmp(a,b)});
  var lbl={aan:"✅ Staat ter dekking",mag:"💰 Mag ter dekking",binnen:"🏠 Niet ter dekking",stop:"⛔ Dekdienst uit"};
  var chip=function(k,t){return HnE("button",{key:k,type:"button",className:"md-chip md-"+k+(flt===k?" on":""),onClick:function(){setFlt(flt===k?"alle":k)}},t)};
- var card=function(r){var h=r.h,d=r.d,binnen=d.mode==="binnen"||d.mode==="weg";var vraag=r.eig!==null?r.eig:r.p?r.p.price:null;
+ var ownN={};all.forEach(function(x){if(x.inStal&&x.name)ownN[Se(x.name)]=1});
+ var mkt=function(h){var v=km(h);if(v===null||v===void 0||isNaN(v))return null;var L=all.filter(function(x){return!x.inStal&&!ownN[Se(x.name||"")]&&x.gender==="H"&&x.dekhengst&&Se(x.ras)===Se(h.ras)&&x.dekgeld!==void 0&&x.dekgeld!==null&&x.dekgeld!==""&&+x.dekgeld>0&&km(x)!==null&&!isNaN(km(x))});
+  var pick=null;[1,2,3].some(function(w){var c=L.filter(function(x){return Math.abs(km(x)-v)<=w});if(c.length>=3||w===3&&c.length>=2){pick={c:c,w:w};return!0}return!1});if(!pick)return null;
+  var P=pick.c.map(function(x){return+x.dekgeld}).sort(function(a,b){return a-b}),n=P.length,med=n%2?P[(n-1)/2]:(P[n/2-1]+P[n/2])/2;med=med>=1000?Math.round(med/250)*250:Math.round(med/25)*25;
+  var q=function(f){return P[Math.min(n-1,Math.max(0,Math.floor(f*(n-1))))]};return n<5?{med:med,lo:P[0],hi:P[n-1],n:n,w:pick.w,all:1}:{med:med,lo:q(.25),hi:P[Math.min(n-1,Math.ceil(.75*(n-1)))],n:n,w:pick.w}};
+ var card=function(r){var h=r.h,d=r.d,binnen=d.mode==="binnen"||d.mode==="weg";var vraag=r.eig!==null?r.eig:r.p?r.p.price:null,M=binnen?null:mkt(h);
   return HnE("div",{key:h.id,className:"pred-card md-card md-c-"+r.st},
    HnE("div",{className:"md-top"},HnE("div",null,HnE("b",null,h.name)," ",hnBadge(h.predicaat),HnE("div",{className:"pc-det"},["SDG "+hnF1(km(h)),h.fokbonus?"fokbonus ✓":"",r.a?HN_VNAME[r.a.verdict]:""].filter(Boolean).join(" · "))),
     HnE("div",{className:"md-price"},binnen?HnE("span",null,HnE("b",null,"Niet aanbieden"),HnE("div",{className:"pc-det"},vraag!==null?"zou "+hnDekMoney(vraag)+" zijn":"")):vraag!==null?HnE("span",null,HnE("span",{className:"pc-det"},r.eig!==null?"jouw dekgeld":"vraag"),HnE("b",null,hnDekMoney(vraag)),r.eig!==null&&r.p&&r.p.price!==r.eig?HnE("div",{className:"pc-det"},"advies "+hnDekMoney(r.p.price)):null):HnE("span",{className:"pc-det"},"vul eerst de SDG in"))),
@@ -4027,6 +4034,8 @@ function HnMijnDek(props){var all=props.all;var tk=z.useState(0),setTick=tk[1];v
    HnE("div",{className:"md-row"},HnE("label",{className:"teams-chk"},HnE("input",{type:"checkbox",checked:!!d.aan,onChange:function(e){setAan(h.id,e.target.checked)}}),"Staat in Horse Nation ter dekking"),
     binnen?null:HnE("label",{className:"md-own"},"Jouw dekgeld (Ħ) ",HnE("input",{type:"number",min:"0",step:"25",value:r.eig===null?"":r.eig,placeholder:r.p?String(r.p.price):"",onChange:function(e){upd(h.id,{dekgeld:e.target.value})}}))),
    r.p&&r.p.parts.length?HnE("div",{className:"pc-det"},"Prijs: "+r.p.profile+", "+r.p.sdgInt+" SDG, "+r.p.parts.join(", ")):null,
+   M?HnE("div",{className:"md-mkt"},HnE("span",{className:"pc-det"},"Markt: andere "+h.ras+"-dekhengsten met SDG "+hnF1(km(h)-M.w)+"\u2013"+hnF1(km(h)+M.w)+(M.all?" vragen ":" vragen meestal ")+hnDekMoney(M.lo)+(M.hi!==M.lo?"\u2013"+hnDekMoney(M.hi):"")+" (midden "+hnDekMoney(M.med)+", "+M.n+" hengsten)."),
+    r.eig===M.med?HnE("button",{type:"button",className:"md-mbtn",onClick:function(){upd(h.id,{dekgeld:""})}},"Terug naar app-prijs"+(r.p?" ("+hnDekMoney(r.p.price)+")":"")):HnE("button",{type:"button",className:"md-mbtn",onClick:function(){upd(h.id,{dekgeld:String(M.med)})}},"Marktprijs gebruiken ("+hnDekMoney(M.med)+")")):binnen?null:HnE("div",{className:"pc-det"},"Markt: geen vergelijkbare "+h.ras+"-dekhengsten met dekgeld in je database. Plak Merrie dekken in het Plakvlak om dit te vullen."),
    HnE("details",{className:"md-why"},HnE("summary",null,"Waarom en hoe?"),HnE("div",null,d.why),d.how.map(function(t,i){return HnE("div",{key:i},t)})))};
  return HnE("div",null,
   HnE(HnInfo,null,"Al je eigen dekhengsten op één plek: of je ze ter dekking aanbiedt of binnenshuis houdt, hoeveel dekgeld je kunt vragen en hoeveel veulens ze buitenshuis al hebben. Het advies komt uit je Stalplan. Vink aan welke hengsten in Horse Nation echt ter dekking staan, dan houdt de app de grens bij (‘Max. veulens buitenshuis per hengst’, nu "+(+sp.grens||0)+"). Vul je eigen dekgeld in als je iets anders vraagt dan het advies. De prijsregels pas je onderaan aan."),
@@ -4296,7 +4305,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-19f";
+var HN_VERSION="2026-11-19g";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};
