@@ -1,6 +1,17 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-25b: vers bloed klopt bij dubbele namen
+- Het 🌱 vers-bloed-percentage volgt nu de ouders via het paardnummer, net als de inteelt. Voorheen kon de app bij twee paarden met dezelfde naam (zoals de Belgische en de Tinker Bastet) de verkeerde voorouder pakken, waardoor een merrie ineens veel "verser" leek.
+- Zonder paardnummer kiest de app bij dubbele namen eerst een ouder van hetzelfde ras.
+
+## Versie 2026-11-25a
+- Stalplan: een merrie die nog niet als fokmerrie in een groep staat, mag een lege fokmerrieplek opvullen, ook als ze al drachtig is. Voorheen kwam zo'n merrie (bijvoorbeeld de enige van haar ras) onterecht op "weg" te staan.
+
+## Versie 2026-11-20a
+- Paardpagina plakken: de app leest nu of de combinatiebeloning (✓) en de allroundbeloning behaald zijn.
+- Kleine verbeteringen achter de schermen.
+
 ## Versie 2026-11-19s: verkeerde stalnaam bij dekhengsten
 - Merrie dekken plakken: heeft een hengst in je database dezelfde naam, dezelfde eigenaar en precies dezelfde S/D/G maar een andere stalnaam, dan ziet de app hem als hetzelfde paard en verbetert de stalnaam (bijvoorbeeld Boas: BRS in plaats van Habsburger). Er komt dus geen tweede bij.
 - Stamboom controleren: hengsten met dezelfde naam, hetzelfde ras, dezelfde eigenaar en precies dezelfde S/D/G (met decimalen) worden als dubbel gezien, ook als de stalnaam verschilt. Bij samenvoegen blijft de versie van de dekhengstenlijst over.
