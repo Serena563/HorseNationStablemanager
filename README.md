@@ -1,6 +1,9 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27o
+- Lijnen: elke stam kan nu een eigen naam krijgen (bijv. "Viking"). Klik een stam open en vul bij "Naam van deze lijn" een naam in, of kies er een uit je namenlijsten van dat ras. De naam staat daarna achter de stam, zodat je ziet welke namen de paarden van die stam krijgen. Bij een losse fokmerrie (zoals Belyra) vul je de naam in het kleine vakje achter haar naam in.
+
 ## Versie 2026-11-27n
 - Stalplan: een dochter met genoeg vers bloed mag ook de vers-bloedmerrie van haar eigen stam vervangen als ze hoger staat (bijv. Meidhir voor Sassafras).
 - Stalplan: een merrie die onder "Lage merries meteen weg" valt, staat nu in de fokmerries als rood "kan weg" en telt als weg.
