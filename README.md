@@ -1,6 +1,11 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27p
+- Lijnen: je kunt nu zelf een nieuwe stam beginnen. Klik een stam open en klik achter een merrie op "→ eigen stam". Zij en haar dochters vormen dan een eigen stam (en lijn), los van de stam van haar moeder. Daarna kun je die stam bij "Naam van deze lijn" een naam geven. Terugdraaien kan met "ongedaan" achter haar naam.
+- Het stalplan rekent met dezelfde stammen: een dochter vervangt dan een fokmerrie uit deze nieuwe stam.
+- Inteelt verandert hier niet door: een merrie blijft familie van haar moeder.
+
 ## Versie 2026-11-27o
 - Lijnen: elke stam kan nu een eigen naam krijgen (bijv. "Viking"). Klik een stam open en vul bij "Naam van deze lijn" een naam in, of kies er een uit je namenlijsten van dat ras. De naam staat daarna achter de stam, zodat je ziet welke namen de paarden van die stam krijgen. Bij een losse fokmerrie (zoals Belyra) vul je de naam in het kleine vakje achter haar naam in.
 

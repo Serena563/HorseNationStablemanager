@@ -2361,6 +2361,11 @@ body.nav-hide .hn-navwrap{transform:translateY(-110%)}
 .lnn-edit.lnn-c{display:inline-block;margin:0 0 0 6px}
 .lnn-edit.lnn-c input{width:120px;padding:2px 6px;font-size:12px}
 .lnn-tag{color:#8a5a1c;font-weight:600}
+
+/* ---- 2026-11-27p: eigen stam beginnen ---- */
+.lf-split{font-size:11px;margin-left:8px;opacity:.55}
+.lf-row:hover .lf-split{opacity:1}
+.lf-own{color:#8a5a1c;font-weight:600}
 </style>
 </head>
 <body>
@@ -2755,13 +2760,13 @@ function hnRasStateAll(groups,ext){if(HN_RSC.g===groups&&HN_RSC.x===ext&&HN_RSC.
  HN_RSC={g:groups,x:ext,v:out};return out}
 var HN_FAMC=["#1D9E75","#7F77DD","#D85A30","#D4537E","#BA7517","#378ADD","#639922","#993556","#0F6E56","#854F0B"];
 function hnFamilies(L,map){var key=function(x){return x.id?"id:"+x.id:"n:"+Se(x.name)},M={};L.forEach(function(h){M[h.id]=1});
- var chain=function(h){var c=[h],x=h;for(var k=0;k<3;k++){var d=hnPar(x,"dam",map);if(!d){if(x.damName&&x.damName.trim())c.push({name:x.damName.trim(),ghost:1});break}c.push(d);x=d}return c};
+ var chain=function(h){var c=[h],x=h;for(var k=0;k<3;k++){if(x.stamStart)break;var d=hnPar(x,"dam",map);if(!d){if(x.damName&&x.damName.trim())c.push({name:x.damName.trim(),ghost:1});break}c.push(d);x=d}return c};
  var C={},cnt={};L.forEach(function(h){C[h.id]=chain(h);var seen={};C[h.id].forEach(function(x){var k=key(x);if(!seen[k]){seen[k]=1;cnt[k]=(cnt[k]||0)+1}})});
  var node={},par={},kids={},via={};var add=function(x){var k=key(x);if(!node[k])node[k]={k:k,h:x,ghost:!!x.ghost||!M[x.id]};return k};
  var lone=[];L.forEach(function(h){var c=C[h.id],ri=-1;for(var i=c.length-1;i>0;i--){if(cnt[key(c[i])]>1){ri=i;break}}if(ri<0&&cnt[key(h)]>1)ri=0;if(ri<0){lone.push(h);return}
   for(var j=0;j<=ri;j++){var k=add(c[j]);if(j<ri){var pk=key(c[j+1]);par[k]=pk}}});
  Object.keys(par).forEach(function(k){var pk=par[k];(kids[pk]=kids[pk]||[]);if(kids[pk].indexOf(k)<0)kids[pk].push(k)});
- var rest=[];lone.forEach(function(h){var p=hnPar(h,"sire",map);if(p&&node[key(p)]){var k=add(h);par[k]=key(p);via[k]=1;(kids[key(p)]=kids[key(p)]||[]).push(k)}else rest.push(h)});
+ var rest=[];lone.forEach(function(h){if(h.stamStart){add(h);return}var p=hnPar(h,"sire",map);if(p&&node[key(p)]){var k=add(h);par[k]=key(p);via[k]=1;(kids[key(p)]=kids[key(p)]||[]).push(k)}else rest.push(h)});
  var roots=Object.keys(node).filter(function(k){return!par[k]});
  roots=roots.map(function(r){while(node[r].ghost&&(kids[r]||[]).length===1&&!via[kids[r][0]])r=kids[r][0];return r});
  var F=roots.map(function(r){var ids=[],walk=function(k){if(!node[k].ghost&&node[k].h.id)ids.push(node[k].h.id);(kids[k]||[]).forEach(walk)};walk(r);return{root:r,ids:ids}}).filter(function(f){return f.ids.length});
@@ -2770,10 +2775,14 @@ function hnFamilies(L,map){var key=function(x){return x.id?"id:"+x.id:"n:"+Se(x.
  var anc=function(h){var o={},go=function(x,d){if(!x||d>4)return;["sire","dam"].forEach(function(r){var n=r==="sire"?x.sireName:x.damName;if(!n||!n.trim())return;var q=hnPar(x,r,map),k=q&&q.id?"id:"+q.id:"n:"+Se(n);if(!o[k]||o[k].d>d)o[k]={n:q?q.name:n.trim(),d:d};go(q,d+1)})};o["id:"+h.id]={n:h.name,d:0};go(h,1);return o};
  var far=rest.map(function(h){var a=anc(h),best=null;L.forEach(function(o){if(o.id===h.id)return;var b=anc(o);Object.keys(a).forEach(function(k){if(b[k]){var sc=a[k].d+b[k].d;if(!best||sc<best.sc)best={sc:sc,n:a[k].n,o:o}}})});return{h:h,why:best?(best.o.id&&best.n===best.o.name?"familie van "+best.o.name:"deelt "+best.n+" met "+best.o.name):"verwant"}});
  return{F:F,node:node,kids:kids,via:via,famOf:famOf,far:far,key:key}}
+function hnStamBtn(nd,top){var h=nd.h;if(nd.ghost||!h||h.gender!=="M"||!h.id)return null;
+ var tog=function(e){e.preventDefault();e.stopPropagation();hnUpdate(h.id,function(x){var o=Object.assign({},x);if(o.stamStart)delete o.stamStart;else o.stamStart=!0;return o})};
+ if(h.stamStart)return HnE("span",{className:"lf-x lf-own"},"✂ eigen stam ",HnE("button",{type:"button",className:"linkbtn",title:"Weer bij de stam van haar moeder laten horen",onClick:tog},"ongedaan"));
+ if(top)return null;return HnE("button",{type:"button",className:"linkbtn lf-split",title:"Maak van "+h.name+" het begin van een eigen stam: zij en haar dochters vormen dan een nieuwe lijn",onClick:tog},"→ eigen stam")}
 function HnFamTree(props){var R=props.R,f=props.f,sx=function(h){return h.gender==="H"?" ♂ ":" ♀ "},out=[];
  var row=function(k,pre,last,top){var nd=R.node[k],h=nd.h,ks=(R.kids[k]||[]).slice().sort(function(a,b){return String(R.node[a].h.name).localeCompare(R.node[b].h.name)});
   var x=null;if(!nd.ghost&&h.sireName){var p=hnPar(h,"sire",props.map),pk=p?R.key(p):"";if(pk&&R.famOf[pk]!==void 0&&R.famOf[pk]!==R.famOf[k]&&!R.via[k])x=HnE("span",{className:"lf-x"},HnE("span",{className:"lf-dot",style:{background:R.F[R.famOf[pk]].color}}),"vader "+p.name)}
-  out.push(HnE("div",{key:k,className:"lf-row"+(nd.ghost?" lf-ghost":"")},top?null:HnE("span",{className:"lf-t"},pre+(last?"└─ ":"├─ ")),nd.ghost?HnE("span",null,h.name):HnE("button",{type:"button",className:"wl-nm",onClick:function(){hnKbGo(h.id)}},h.name),nd.ghost?HnE("span",{className:"pc-det"}," niet in stal"):HnE("span",{className:"pc-det"},sx(h)+hnF1(km(h))),R.via[k]?HnE("span",{className:"lf-x"},"via vader"):null,x));
+  out.push(HnE("div",{key:k,className:"lf-row"+(nd.ghost?" lf-ghost":"")},top?null:HnE("span",{className:"lf-t"},pre+(last?"└─ ":"├─ ")),nd.ghost?HnE("span",null,h.name):HnE("button",{type:"button",className:"wl-nm",onClick:function(){hnKbGo(h.id)}},h.name),nd.ghost?HnE("span",{className:"pc-det"}," niet in stal"):HnE("span",{className:"pc-det"},sx(h)+hnF1(km(h))),R.via[k]?HnE("span",{className:"lf-x"},"via vader"):null,x,hnStamBtn(nd,top)));
   ks.forEach(function(c,i){row(c,top?"":pre+(last?"   ":"│  "),i===ks.length-1,!1)})};
  row(f.root,"",!0,!0);return HnE("div",{className:"lf-tree"},out)}
 function HnRaster(props){var X=props.X,MAP=props.MAP,sp=hnSP(),FC=X._fc||{},FN=X._fn||{};
@@ -4382,7 +4391,7 @@ function hnPlanKids(P,all){var sts=P.stal?[P.stal]:[],find=function(nm,own){var 
  var gone=[];if(P.gender==="H"){var hk2=[Se(pn)].concat(par?[Se(xt(par))]:[]),still=mine.map(function(r){return r.h.id});all.forEach(function(m){if(m.inStal&&m.gender!=="H"&&(m.gedekt||m.echoPositief)&&hk2.indexOf(Se(m.gedektMet||""))>=0&&m.bevallingsdatum&&m.bevallingsdatum>hnToday()&&still.indexOf(m.id)<0)gone.push({h:m,patch:{gedekt:!1,echoPositief:!1,bevallingsdatum:"",gedektMet:""}})})}
  var pp=null;if(par){var old=JSON.stringify(par.hnVerwacht||[]),nw=JSON.stringify(others);if(old!==nw)pp={hnVerwacht:others,hnVerwachtDatum:hnToday()}}
  return{par:par,pn:pn,rows:rows,mine:mine,others:others,pp:pp,gone:gone}}
-var HN_VERSION="2026-11-27o";
+var HN_VERSION="2026-11-27p";
 function hnTCS(){try{return JSON.parse(localStorage.getItem("hn-trainingscentrum-v1")||"{}")||{}}catch(e){return{}}}
 function hnWinst(){var o=(HN_ACT.names&&HN_ACT.names.stalplan&&HN_ACT.names.stalplan.winst)||{};return{snap:o.snap||null,log:Array.isArray(o.log)?o.log:[]}}
 var HN_WG={dres:"dres",spr:"spr",xc:"xc",rei:"west",tra:"west",wp:"west"};
