@@ -1,6 +1,9 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27j
+- Dekplanner: sorteerknop "🧬 Lijnmakers eerst". Daarbinnen blijft de volgorde op hoogste SDG van het veulen.
+
 ## Versie 2026-11-27i
 - Stamboom plakken: een paard herkent nu ook de dekhengst uit je lijst als de stalnaam daar vast aan de naam zit (zoals 𝓐𝓒𝓗𝐮𝐦𝐦𝐢𝐧𝐠𝓑𝐢𝐫𝐝 en 𝓐𝓒 + 𝓗𝐮𝐦𝐦𝐢𝐧𝐠𝓑𝐢𝐫𝐝). De ouders en het paardnummer komen dan bij die dekhengst, in plaats van in een nieuw dubbel paard.
 - Namen met sierletters (𝓐𝓒𝓗𝐮𝐦𝐦𝐢𝐧𝐠𝓑𝐢𝐫𝐝) tellen nu als gewone letters bij het zoeken en vergelijken: je kunt gewoon "hummingbird" typen.
