@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27h: lijnen bouwen
+- Lijnen-raster: ook merries en hengsten in opleiding staan erin, met de inteelt erbij (lichter, met "in opleiding" of dagen tot L3). Zo zie je nu al met wie ze straks schoon kunnen.
+- Dekplanner: 🧬 Lijnmaker bij hengsten van buiten die geen familie zijn van al je paarden van dat (hoofd)ras. Een zoon van zo'n hengst wordt later een eigen dekhengst die bij je andere stammen past.
+- Rondje: bij vast of krap zegt de app hoeveel lijnmakers er in je database staan.
+- Stalplan (hoofdrassen): een jonge hengst die geen familie is van fokmerries waarvoor nu geen eigen dekhengst vrij is, wordt 🧬 Lijnhengst en blijft (maximaal één per ras), in plaats van onder de streep.
+
 ## Versie 2026-11-27g: eigen lijnen
 - Lijnen: per ras een raster met je eigen dekhengsten tegen je fokmerries. Groen = 0.0 (vrij), rood = familie (met het inteeltpercentage), grijs = de hengst is nog niet klaar om te dekken (met dagen tot L3). Het bolletje voor elke naam is de kleur van de moederlijn (stam).
 - Lijnen: voor hoofdrassen een "Rondje": per stam welke eigen dekhengsten vrij zijn met al haar merries (vrij, krap of vast).
