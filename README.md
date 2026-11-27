@@ -1,6 +1,23 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27c: stalregels aangescherpt
+- Verkoopberekening: de trainingskosten komen nu uit het Trainingscentrum (jouw eigen trainingsmethode en kosten), en de app kiest de goedkoopste route naar de fokbonus. Open het Trainingscentrum één keer, dan gebruikt de app jouw bedragen.
+- Vers bloed: een merrie is pas vers als je haar zonder inteelt kunt dekken met minstens één eigen dekhengst van dat ras, én met een groot deel van de dekhengsten van buiten (standaard 50%, in te stellen). De kaart laat zien met hoeveel eigen en hoeveel hengsten van buiten dat kan.
+- Een merrie neemt pas een fokmerrie-plek in (als vers bloed, opvuller of vervanger) wanneer ze haar fokbonus heeft.
+- Eén instelling voor wachten: "Max. wachten op vervanger" geldt nu voor merries én hengsten (ook voor het moment dat een hengst uit de dekdienst gaat).
+- Opvolgers als aparte groep zijn weg: vervangers zijn je opvolgers.
+- Preferent-route volgt de ouders via het paardnummer in plaats van de naam.
+- Gegevens nakijken: meldt eigen paarden die nog geen paardnummer hebben.
+- Per moeder én per vader maximaal één zoon of dochter als opvuller of vervanger, zodat je lijnen schoon blijven.
+- Een SDG zonder decimalen (meestal uit een stamboom) krijgt een ≈ ervoor.
+
+## Versie 2026-11-27b
+- Stalplan: een drachtige merrie kan nu ook vervanger worden van een lagere fokmerrie. Voorheen kwam een hogere merrie die al drachtig was (zoals Nigela) onterecht onder de streep, terwijl een lagere fokmerrie bleef.
+
+## Versie 2026-11-27a
+- Stalplan: bij "Jouw keuze" zie je nu duidelijk welke knop gekozen is: de gekozen knop is gevuld (groen = Houden, geel = Twijfel, rood = Kan weg) met een ✓, de andere zijn wit.
+
 ## Versie 2026-11-25b: vers bloed klopt bij dubbele namen
 - Het 🌱 vers-bloed-percentage volgt nu de ouders via het paardnummer, net als de inteelt. Voorheen kon de app bij twee paarden met dezelfde naam (zoals de Belgische en de Tinker Bastet) de verkeerde voorouder pakken, waardoor een merrie ineens veel "verser" leek.
 - Zonder paardnummer kiest de app bij dubbele namen eerst een ouder van hetzelfde ras.
