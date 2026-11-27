@@ -1,6 +1,12 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27g: eigen lijnen
+- Lijnen: per ras een raster met je eigen dekhengsten tegen je fokmerries. Groen = 0.0 (vrij), rood = familie (met het inteeltpercentage), grijs = de hengst is nog niet klaar om te dekken (met dagen tot L3). Het bolletje voor elke naam is de kleur van de moederlijn (stam).
+- Lijnen: voor hoofdrassen een "Rondje": per stam welke eigen dekhengsten vrij zijn met al haar merries (vrij, krap of vast).
+- Instellingen → Rassen: vinkje "Hoofdras". Standaard zijn Friezen, Tinkers en Belgen hoofdras.
+- Dekdienst: een jonge hengst zonder fokbonus is alleen voor eigen gebruik (vanaf L3 kun je er zelf mee dekken). Met fokbonus zegt de app dat je hem open kunt zetten, met je gewone grens. De instelling "Dekdienst in opleiding" is daarom weg.
+
 ## Versie 2026-11-27f
 - Weiland: een paard gaat nooit meer naar een weiland met een ander doel (zoals een merrie naar het hengstenweiland of naar Preferent) alleen omdat daar plek is. Is er geen plek, dan blijft het paard in de stal en noemt de app een paard dat weg kan: het laagste SDG (bij gelijke SDG het oudste) dat niet drachtig of gedekt is en niet meer gedekt hoeft te worden.
 - Weiland: bij een wissel staat nu de echte reden, ook als het eigen weiland vol is.
