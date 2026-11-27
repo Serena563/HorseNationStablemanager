@@ -1,6 +1,9 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27d
+- Nieuw app-icoon: een rozet met "Stalmanager" op het lint, voor je beginscherm en het tabblad. Zet het bestand apple-touch-icon.png naast index.html. Staat de app al op je beginscherm, haal hem dan één keer weg en voeg hem opnieuw toe.
+
 ## Versie 2026-11-27c: stalregels aangescherpt
 - Verkoopberekening: de trainingskosten komen nu uit het Trainingscentrum (jouw eigen trainingsmethode en kosten), en de app kiest de goedkoopste route naar de fokbonus. Open het Trainingscentrum één keer, dan gebruikt de app jouw bedragen.
 - Vers bloed: een merrie is pas vers als je haar zonder inteelt kunt dekken met minstens één eigen dekhengst van dat ras, én met een groot deel van de dekhengsten van buiten (standaard 50%, in te stellen). De kaart laat zien met hoeveel eigen en hoeveel hengsten van buiten dat kan.
