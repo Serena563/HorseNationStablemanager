@@ -1,6 +1,10 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27n
+- Stalplan: een dochter met genoeg vers bloed mag ook de vers-bloedmerrie van haar eigen stam vervangen als ze hoger staat (bijv. Meidhir voor Sassafras).
+- Stalplan: een merrie die onder "Lage merries meteen weg" valt, staat nu in de fokmerries als rood "kan weg" en telt als weg.
+
 ## Versie 2026-11-27m
 - Stalplan: nieuwe instelling "Lage merries meteen weg" (standaard aan). Een fokmerrie die vervangen wordt en onder het gemiddelde SDG van haar ras in je stal zit, niet in een PowerHouse-team zit, niet bij de Preferent-groep hoort (de stammerrie en haar veulens) en niet gedekt of drachtig is, krijgt geen laatste veulen meer: niet meer dekken, en weg zodra de vervanger 🔥 heeft.
 
