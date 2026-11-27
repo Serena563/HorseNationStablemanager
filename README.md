@@ -1,6 +1,17 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27m
+- Stalplan: nieuwe instelling "Lage merries meteen weg" (standaard aan). Een fokmerrie die vervangen wordt en onder het gemiddelde SDG van haar ras in je stal zit, niet in een PowerHouse-team zit, niet bij de Preferent-groep hoort (de stammerrie en haar veulens) en niet gedekt of drachtig is, krijgt geen laatste veulen meer: niet meer dekken, en weg zodra de vervanger 🔥 heeft.
+
+## Versie 2026-11-27l
+- Stalplan (hoofdrassen): een merrie in opleiding vervangt alleen de zwakste fokmerrie van haar eigen stam, zodat geen lijn een merrie kwijtraakt. Heeft haar stam nog geen fokmerrie, dan mag ze de zwakste vervangen uit een lijn die meer dan haar deel heeft (fokmerries ÷ lijnen), als ze beter is.
+- Lijnen: een losse fokmerrie zonder familie in je stal (zoals Belyra) telt in het rondje als eigen stam en lijn.
+
+## Versie 2026-11-27k
+- Instellingen → Rassen: bij een hoofdras stel je het aantal lijnen in (standaard 3). Het aantal dekhengsten gaat mee (1 per lijn), en je ziet hoeveel fokmerries daarbij horen (± 2 per lijn).
+- Lijnen → Rondje: elke stam krijgt een letter (A, B, C…). Achter elke hengst staat de letter van zijn stam, zodat je ziet welke stam op welke past. Bovenaan staat hoeveel lijnen je al hebt van het aantal dat je wilt.
+
 ## Versie 2026-11-27j
 - Dekplanner: sorteerknop "🧬 Lijnmakers eerst". Daarbinnen blijft de volgorde op hoogste SDG van het veulen.
 
