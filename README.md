@@ -1,6 +1,10 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27i
+- Stamboom plakken: een paard herkent nu ook de dekhengst uit je lijst als de stalnaam daar vast aan de naam zit (zoals 𝓐𝓒𝓗𝐮𝐦𝐦𝐢𝐧𝐠𝓑𝐢𝐫𝐝 en 𝓐𝓒 + 𝓗𝐮𝐦𝐦𝐢𝐧𝐠𝓑𝐢𝐫𝐝). De ouders en het paardnummer komen dan bij die dekhengst, in plaats van in een nieuw dubbel paard.
+- Namen met sierletters (𝓐𝓒𝓗𝐮𝐦𝐦𝐢𝐧𝐠𝓑𝐢𝐫𝐝) tellen nu als gewone letters bij het zoeken en vergelijken: je kunt gewoon "hummingbird" typen.
+
 ## Versie 2026-11-27h: lijnen bouwen
 - Lijnen-raster: ook merries en hengsten in opleiding staan erin, met de inteelt erbij (lichter, met "in opleiding" of dagen tot L3). Zo zie je nu al met wie ze straks schoon kunnen.
 - Dekplanner: 🧬 Lijnmaker bij hengsten van buiten die geen familie zijn van al je paarden van dat (hoofd)ras. Een zoon van zo'n hengst wordt later een eigen dekhengst die bij je andere stammen past.
