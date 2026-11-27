@@ -1,6 +1,13 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-27f
+- Weiland: een paard gaat nooit meer naar een weiland met een ander doel (zoals een merrie naar het hengstenweiland of naar Preferent) alleen omdat daar plek is. Is er geen plek, dan blijft het paard in de stal en noemt de app een paard dat weg kan: het laagste SDG (bij gelijke SDG het oudste) dat niet drachtig of gedekt is en niet meer gedekt hoeft te worden.
+- Weiland: bij een wissel staat nu de echte reden, ook als het eigen weiland vol is.
+
+## Versie 2026-11-27e
+- Vers bloed werkt nu ook voor rassen zonder (vrije) eigen dekhengst, zoals kleine rassen met maar één hengst: dan is een merrie vers als ze zonder inteelt kan met minstens 60% van de dekhengsten van buiten (de instelling + 10%). Met een vrije eigen hengst blijft het 50%.
+
 ## Versie 2026-11-27d
 - Nieuw app-icoon: een rozet met "Stalmanager" op het lint, voor je beginscherm en het tabblad. Zet het bestand apple-touch-icon.png naast index.html. Staat de app al op je beginscherm, haal hem dan één keer weg en voeg hem opnieuw toe.
 
