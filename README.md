@@ -1,6 +1,9 @@
 # Horse Nation Stalmanagement
 
 
+## Versie 2026-11-28a
+- Stalplan (hoofdrassen): "per vader maximaal één dochter of zoon" geldt nu per stam. Halfzussen van dezelfde vader in verschillende stammen (zoals Qvenhild en Ulyra, allebei van Xyrrak) mogen dus allebei blijven; dat past bij het rondje. Per moeder blijft het maximaal één.
+
 ## Versie 2026-11-27p
 - Lijnen: je kunt nu zelf een nieuwe stam beginnen. Klik een stam open en klik achter een merrie op "→ eigen stam". Zij en haar dochters vormen dan een eigen stam (en lijn), los van de stam van haar moeder. Daarna kun je die stam bij "Naam van deze lijn" een naam geven. Terugdraaien kan met "ongedaan" achter haar naam.
 - Het stalplan rekent met dezelfde stammen: een dochter vervangt dan een fokmerrie uit deze nieuwe stam.
